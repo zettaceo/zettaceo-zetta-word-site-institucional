@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="obeliskTitle">
+  <title id="obeliskTitle">Ícone Obelisk-Z Wallet</title>
+  <desc>Carteira com obelisco central e símbolo de cofre.</desc>
+  <rect width="64" height="64" rx="8" fill="#071021"/>
+  <g transform="translate(8,8)">
+    <rect x="2" y="18" width="44" height="22" rx="4" fill="#0b0712" stroke="#ffffff08"/>
+    <path d="M24 2 L32 18 L24 34 L16 18 Z" fill="#5D3CFF"/>
+    <circle cx="24" cy="18" r="3.2" fill="#E6E7EA"/>
+    <rect x="34" y="24" width="6" height="6" rx="1" fill="#9AA0A6"/>
+  </g>
+</svg>

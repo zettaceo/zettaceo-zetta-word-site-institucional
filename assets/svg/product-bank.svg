@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" role="img" aria-labelledby="bankTitle">
+  <title id="bankTitle">Ícone Z-BANCK</title>
+  <desc>Ícone de banco minimal em círculo.</desc>
+  <rect width="80" height="80" rx="12" fill="#071021"/>
+  <g transform="translate(0,0)" fill="#5D3CFF">
+    <rect x="20" y="26" width="40" height="10" rx="2"/>
+    <polygon points="18,26 40,10 62,26 18,26"/>
+    <rect x="26" y="40" width="8" height="12" rx="1"/>
+    <rect x="46" y="40" width="8" height="12" rx="1"/>
+  </g>
+</svg>

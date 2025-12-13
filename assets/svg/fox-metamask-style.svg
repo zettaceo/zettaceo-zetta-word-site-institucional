@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="foxTitle">
+  <title id="foxTitle">Ícone estilo raposa - adiciona carteira</title>
+  <desc>Raposa geométrica minimal, inspiração MetaMask porém original.</desc>
+  <rect width="64" height="64" rx="10" fill="#071021"/>
+  <g transform="translate(8,8)" fill="none" stroke-linejoin="round">
+    <polygon points="18,2 34,12 26,36 10,36 2,12" fill="#FF8C42"/>
+    <path d="M18 2 L26 14 L10 14 Z" fill="#C75A1C"/>
+    <polygon points="26,36 34,12 42,14 30,36" fill="#5D3CFF" opacity="0.06"/>
+    <circle cx="18" cy="18" r="3" fill="#071021"/>
+  </g>
+</svg>
