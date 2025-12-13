@@ -1,0 +1,118 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00FFFF;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#001233;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="planetBlue" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#0066ff"/>
+    </radialGradient>
+    <radialGradient id="planetGold" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#f0d78c"/>
+      <stop offset="100%" style="stop-color:#c9a955"/>
+    </radialGradient>
+    <radialGradient id="planetCyan" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#66ffff"/>
+      <stop offset="100%" style="stop-color:#00d4ff"/>
+    </radialGradient>
+    <radialGradient id="planetPurple" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#9966ff"/>
+      <stop offset="100%" style="stop-color:#6633cc"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="planetGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="400" cy="400" r="380" fill="url(#coreGlow)" opacity="0.3"/>
+
+  <g stroke="#0099ff" stroke-width="1" fill="none" opacity="0.2">
+    <ellipse cx="400" cy="400" rx="120" ry="120"/>
+    <ellipse cx="400" cy="400" rx="180" ry="180"/>
+    <ellipse cx="400" cy="400" rx="240" ry="240"/>
+    <ellipse cx="400" cy="400" rx="300" ry="300"/>
+    <ellipse cx="400" cy="400" rx="360" ry="360"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <circle cx="400" cy="400" r="50" fill="url(#planetBlue)" opacity="0.9"/>
+    <text x="400" y="408" text-anchor="middle" fill="#000" font-size="24" font-weight="bold">Z</text>
+  </g>
+
+  <a href="#zbanck" class="planet-link">
+    <g filter="url(#planetGlow)" style="cursor:pointer">
+      <circle cx="400" cy="280" r="28" fill="url(#planetGold)">
+        <animateTransform attributeName="transform" type="rotate" from="0 400 400" to="360 400 400" dur="40s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </a>
+
+  <a href="#zion" class="planet-link">
+    <g filter="url(#planetGlow)" style="cursor:pointer">
+      <circle cx="580" cy="400" r="24" fill="url(#planetCyan)">
+        <animateTransform attributeName="transform" type="rotate" from="45 400 400" to="405 400 400" dur="50s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </a>
+
+  <a href="#blockchain" class="planet-link">
+    <g filter="url(#planetGlow)" style="cursor:pointer">
+      <circle cx="400" cy="520" r="26" fill="url(#planetPurple)">
+        <animateTransform attributeName="transform" type="rotate" from="90 400 400" to="450 400 400" dur="60s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </a>
+
+  <a href="#obelisk" class="planet-link">
+    <g filter="url(#planetGlow)" style="cursor:pointer">
+      <circle cx="220" cy="400" r="22" fill="url(#planetBlue)">
+        <animateTransform attributeName="transform" type="rotate" from="135 400 400" to="495 400 400" dur="45s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </a>
+
+  <a href="#token" class="planet-link">
+    <g filter="url(#planetGlow)" style="cursor:pointer">
+      <circle cx="293" cy="293" r="20" fill="url(#planetGold)">
+        <animateTransform attributeName="transform" type="rotate" from="180 400 400" to="540 400 400" dur="55s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </a>
+
+  <a href="#ecosystem" class="planet-link">
+    <g filter="url(#planetGlow)" style="cursor:pointer">
+      <circle cx="507" cy="293" r="18" fill="url(#planetCyan)">
+        <animateTransform attributeName="transform" type="rotate" from="225 400 400" to="585 400 400" dur="65s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </a>
+
+  <a href="#security" class="planet-link">
+    <g filter="url(#planetGlow)" style="cursor:pointer">
+      <circle cx="507" cy="507" r="16" fill="url(#planetPurple)">
+        <animateTransform attributeName="transform" type="rotate" from="270 400 400" to="630 400 400" dur="70s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </a>
+
+  <a href="#investors" class="planet-link">
+    <g filter="url(#planetGlow)" style="cursor:pointer">
+      <circle cx="293" cy="507" r="14" fill="url(#planetBlue)">
+        <animateTransform attributeName="transform" type="rotate" from="315 400 400" to="675 400 400" dur="75s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </a>
+
+</svg>
