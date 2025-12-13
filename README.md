@@ -1,2 +1,2 @@
-# zettaceo-zetta-word-site-institucional
-Official institutional website of ZETTA WORD — a next-generation Web3 ecosystem. Includes public whitepaper, tokenomics, and pre-sale gateway.
+# zetta-word-site-institucional
+Site institucional oficial da Zetta Word — ecossistema global Web3/Fiat, Z-BANCK, Obelisk-Z Wallet, Blockchain Zetta e Zion IA.

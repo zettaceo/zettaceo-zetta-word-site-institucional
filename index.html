@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>ZETTA WORD — Infraestrutura Financeira Híbrida Global</title>
+  <meta name="description" content="ZETTA WORD é uma entidade tecnológica soberana que constrói infraestrutura financeira híbrida, auditável e escalável integrando blockchain, wallet institucional, IA e serviços bancários para a nova economia global.">
+  <meta name="keywords" content="Zetta Word, Z-BANCK, Obelisk-Z, blockchain, wallet, DeFi, banco híbrido, Zion IA, token ZETTA, infraestrutura financeira">
+  <link rel="canonical" href="https://zettaword.global/">
+
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ZETTA WORD">
+  <meta property="og:title" content="ZETTA WORD — Infraestrutura Financeira Híbrida Global">
+  <meta property="og:description" content="Entidade tecnológica soberana construindo a infraestrutura financeira do futuro.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zettaword.global/">
+  <meta property="og:image" content="https://zettaword.global/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ZETTA WORD — Infraestrutura Financeira Híbrida Global">
+  <meta name="twitter:description" content="Entidade tecnológica soberana construindo a infraestrutura financeira do futuro.">
+  <meta name="twitter:site" content="@ZettaWord">
+  <meta name="twitter:image" content="https://zettaword.global/assets/og-image.png">
+
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="/assets/logo-z.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/logo-z.svg">
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero">
+        <img class="logo-img" src="/assets/logo-z.svg" alt="ZETTA" width="36" height="36">
+        <span class="brand-text">ZETTA</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="main-nav" class="nav">
+        <a class="nav-link" href="#about" data-i18n="nav.about">Sobre</a>
+        <a class="nav-link" href="#ecosystem" data-i18n="nav.ecosystem">Ecossistema</a>
+        <a class="nav-link" href="#token" data-i18n="nav.token">Token</a>
+        <a class="nav-link" href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
+        <a class="nav-link" href="#security" data-i18n="nav.security">Segurança</a>
+        <a class="nav-link" href="#investors" data-i18n="nav.investors">Investidores</a>
+        <a class="nav-link" href="/zetta.html" data-i18n="nav.onepage">One-Page</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Canvas de partículas fixo cobrindo toda a página -->
+  <canvas id="particleCanvas" class="particle-canvas" aria-hidden="true"></canvas>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge" data-i18n="hero.badge">Infraestrutura Financeira Global</div>
+          <h1 class="hero-title" data-i18n-html="hero.titleHtml">Construindo o Futuro da <span class="accent">Economia Digital</span></h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">A ZETTA é uma entidade tecnológica soberana que integra blockchain, sistema bancário e inteligência artificial em uma infraestrutura financeira completa para a nova era global.</p>
+          <div class="hero-actions">
+            <a href="#ecosystem" class="btn btn-primary" data-i18n="hero.cta1">Explorar Ecossistema</a>
+            <a href="#token" class="btn btn-secondary" data-i18n="hero.cta2">Token ZETTA</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="solar-system" id="solarSystem">
+            <div class="gravitational-field"></div>
+            <div class="core">
+              <div class="core-glow"></div>
+              <div class="core-symbol">Z</div>
+            </div>
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="orbit orbit-3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-label" data-i18n="about.label">Sobre a ZETTA</span>
+          <h2 class="section-title" data-i18n="about.title">Uma Entidade Tecnológica Soberana</h2>
+          <p class="section-desc" data-i18n="about.desc">A ZETTA não é uma startup comum. É uma infraestrutura-base projetada para existir no longo prazo, operando de forma independente de ciclos políticos ou tendências passageiras.</p>
+        </header>
+
+        <div class="mission-vision-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+          <div class="mv-card" style="background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(0,102,255,0.05) 100%); border: 1px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 2rem;">
+            <h3 style="color: #00d4ff; margin-bottom: 1rem; font-size: 1.25rem;" data-i18n="about.mission">Nossa Missão</h3>
+            <p style="color: #a0a0a0; line-height: 1.7;" data-i18n="about.missionText">Criar a infraestrutura financeira global mais completa, segura e acessível — integrando blockchain, sistema bancário tradicional e inteligência artificial para democratizar o acesso a serviços financeiros de alto nível.</p>
+          </div>
+          <div class="mv-card" style="background: linear-gradient(135deg, rgba(201,169,85,0.1) 0%, rgba(201,169,85,0.05) 100%); border: 1px solid rgba(201,169,85,0.2); border-radius: 16px; padding: 2rem;">
+            <h3 style="color: #c9a955; margin-bottom: 1rem; font-size: 1.25rem;" data-i18n="about.vision">Nossa Visão</h3>
+            <p style="color: #a0a0a0; line-height: 1.7;" data-i18n="about.visionText">Ser reconhecida como a principal entidade tecnológica soberana do mundo, operando de forma independente de ciclos políticos e oferecendo uma alternativa confiável aos sistemas financeiros tradicionais.</p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value">23+</div>
+            <div class="stat-label" data-i18n="about.stats.products">Produtos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">350+</div>
+            <div class="stat-label" data-i18n="about.stats.functions">Funções na Wallet</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label" data-i18n="about.stats.operations">Operações</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" data-i18n="about.stats.reach">Global</div>
+            <div class="stat-label" data-i18n="about.stats.reachLabel">Alcance</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Z-BANCK -->
+    <section id="zbanck" class="section">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-bank.svg" alt="" width="64" height="64">
+          <div>
+            <h2 class="card-title" data-i18n="zbanck.title">Z-BANCK</h2>
+            <p class="card-desc" data-i18n="zbanck.desc">O banco híbrido da ZETTA — unindo arquitetura blockchain com infraestrutura bancária tradicional para pagamentos globais instantâneos.</p>
+            <ul class="feature-list">
+              <li>Pagamentos globais instantâneos</li>
+              <li>Contas multi-moedas (cripto + fiat)</li>
+              <li>Cartões internacionais</li>
+              <li>Custódia institucional segura</li>
+              <li>Integração direta com blockchain ZETTA</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ZION IA -->
+    <section id="zion" class="section section-alt">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-ai.svg" alt="" width="64" height="64">
+          <div>
+            <h2 class="card-title" data-i18n="zion.title">ZION — Inteligência Artificial</h2>
+            <p class="card-desc" data-i18n="zion.desc">O cérebro estratégico da ZETTA. ZION não é um chatbot — é o sistema de IA proprietário para segurança, análise avançada, automação operacional e tomada de decisão.</p>
+            <ul class="feature-list">
+              <li>Análise estratégica em tempo real</li>
+              <li>Detecção automática de fraudes e riscos</li>
+              <li>Auditoria contínua do ecossistema</li>
+              <li>Suporte contextual inteligente</li>
+              <li>Defesa da integridade do ecossistema</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOCKCHAIN -->
+    <section id="blockchain" class="section">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-blockchain.svg" alt="" width="64" height="64">
+          <div>
+            <h2 class="card-title" data-i18n="blockchain.title">Blockchain ZETTA</h2>
+            <p class="card-desc" data-i18n="blockchain.desc">Rede blockchain avançada projetada com foco em segurança institucional, flexibilidade multichain e compliance inteligente para aplicações de alto desempenho.</p>
+            <ul class="feature-list">
+              <li>Módulos nativos de KYC e KYB</li>
+              <li>Anti-fraude em nível de protocolo</li>
+              <li>Suporte a tokens, dApps e smart contracts</li>
+              <li>Alta escalabilidade e baixas taxas</li>
+              <li>Interoperabilidade multichain e cross-chain</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- OBELISK WALLET -->
+    <section id="obelisk" class="section section-alt">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-wallet.svg" alt="" width="64" height="64">
+          <div>
+            <h2 class="card-title" data-i18n="obelisk.title">OBELISK-Z Wallet</h2>
+            <p class="card-desc" data-i18n="obelisk.desc">A carteira oficial da ZETTA — 100% descentralizada, projetada para segurança institucional e integração completa com todo o ecossistema.</p>
+            <ul class="feature-list">
+              <li>+350 funções avançadas integradas</li>
+              <li>Modo Fantasma para privacidade</li>
+              <li>Cofre de segurança multicamada</li>
+              <li>Stake, Swap e DeFi nativo</li>
+              <li>Suporte a NFTs e smart-assets</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ECOSSISTEMA -->
+    <section id="ecosystem" class="section">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-label" data-i18n="ecosystem.label">Ecossistema</span>
+          <h2 class="section-title" data-i18n="ecosystem.title">Infraestrutura Completa</h2>
+          <p class="section-desc" data-i18n="ecosystem.desc">Um ecossistema integrado com múltiplas camadas: financeira, bancária, wallet, lançamento de capital, tecnologia avançada e institucional.</p>
+        </header>
+
+        <div class="ecosystem-grid">
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="8" y="20" width="28" height="4" rx="1" fill="#00d4ff"/><rect x="14" y="14" width="16" height="4" rx="1" fill="#0066ff"/><rect x="16" y="26" width="12" height="4" rx="1" fill="#c9a955"/></svg>
+            </div>
+            <div class="eco-body">Z-BANCK</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><circle cx="22" cy="18" r="8" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="16" y="30" width="12" height="4" rx="2" fill="#0066ff"/></svg>
+            </div>
+            <div class="eco-body">ZION IA</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="16" y="6" width="12" height="12" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="4" y="26" width="12" height="12" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="28" y="26" width="12" height="12" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M22 18v8M16 26l-6 0M28 26l6 0" stroke="#c9a955" stroke-width="1.5"/></svg>
+            </div>
+            <div class="eco-body">Blockchain</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="8" y="14" width="24" height="16" rx="3" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="28" y="18" width="8" height="8" rx="1" fill="#0066ff"/><circle cx="32" cy="22" r="2" fill="#c9a955"/></svg>
+            </div>
+            <div class="eco-body">Obelisk Wallet</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><path d="M22 8L10 16v12l12 8 12-8V16L22 8z" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M16 30l6-12 6 12" stroke="#c9a955" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="eco-body">Z-PAD</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="10" y="16" width="24" height="12" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><circle cx="18" cy="22" r="4" stroke="#c9a955" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Pay</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><path d="M14 30L18 18L22 26L26 14L30 22" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="30" cy="22" r="3" fill="#c9a955"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Earn</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><path d="M12 22h8M24 22h8" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="22" r="6" stroke="#c9a955" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Bridge</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><circle cx="16" cy="22" r="6" stroke="#00d4ff" stroke-width="1.5" fill="none"/><circle cx="28" cy="22" r="6" stroke="#c9a955" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Swap</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><path d="M14 32V18l8-6 8 6v14" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="18" y="24" width="8" height="8" rx="1" fill="#c9a955"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Labs</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="12" y="12" width="20" height="14" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M16 32h12M22 26v6" stroke="#c9a955" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="eco-body">Academy</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><circle cx="22" cy="16" r="6" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M12 34c0-6 5-10 10-10s10 4 10 10" stroke="#c9a955" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="eco-body">ZETTA ID</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="10" y="10" width="24" height="18" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="14" y="30" width="16" height="4" rx="1" fill="#c9a955"/><circle cx="22" cy="19" r="4" stroke="#c9a955" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Passport</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><ellipse cx="22" cy="18" rx="12" ry="6" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M10 18v8c0 3.3 5.4 6 12 6s12-2.7 12-6v-8" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M22 12v20" stroke="#c9a955" stroke-width="1.5" stroke-dasharray="2 2"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Cloud</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="8" y="10" width="28" height="20" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M12 34h20" stroke="#c9a955" stroke-width="2" stroke-linecap="round"/><text x="14" y="23" font-family="monospace" font-size="8" fill="#00d4ff">&gt;_</text></svg>
+            </div>
+            <div class="eco-body">ZETTA Terminal</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="10" y="10" width="10" height="10" rx="1" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="24" y="10" width="10" height="10" rx="1" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="10" y="24" width="10" height="10" rx="1" stroke="#c9a955" stroke-width="1.5" fill="none"/><rect x="24" y="24" width="10" height="10" rx="1" stroke="#c9a955" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Market</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><path d="M22 10L10 18v8c0 6 5 10 12 14 7-4 12-8 12-14v-8L22 10z" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M16 22l4 4 8-10" stroke="#c9a955" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Verify</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="10" y="12" width="24" height="20" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M14 18h6M14 22h10M14 26h8" stroke="#c9a955" stroke-width="1.5" stroke-linecap="round"/><circle cx="30" cy="26" r="4" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M33 29l2 2" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Scan</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><path d="M12 28l6-8 6 6 8-12" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="32" cy="14" r="4" stroke="#c9a955" stroke-width="1.5" fill="none"/><path d="M10 32h24" stroke="#c9a955" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Analytics</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><circle cx="22" cy="22" r="10" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M22 16v6l4 4" stroke="#c9a955" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="22" r="2" fill="#00d4ff"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Governance</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><rect x="8" y="14" width="28" height="16" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M14 22h4M14 26h8" stroke="#c9a955" stroke-width="1.5" stroke-linecap="round"/><rect x="26" y="18" width="6" height="8" rx="1" fill="#c9a955"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Builder</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><path d="M12 12h20v8H12zM12 24h20v8H12z" stroke="#00d4ff" stroke-width="1.5" fill="none"/><circle cx="32" cy="16" r="2" fill="#c9a955"/><circle cx="32" cy="28" r="2" fill="#c9a955"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Enterprise</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon">
+              <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#0d0d12"/><circle cx="22" cy="22" r="12" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M22 10v24M10 22h24" stroke="#c9a955" stroke-width="1.5"/><circle cx="22" cy="22" r="4" fill="#00d4ff"/></svg>
+            </div>
+            <div class="eco-body">ZETTA Hub</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOKEN -->
+    <section id="token" class="section section-alt">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-token.svg" alt="" width="64" height="64">
+          <div>
+            <h2 class="card-title" data-i18n="token.title">Token ZETTA (Z)</h2>
+            <p class="card-desc" data-i18n="token.desc">O token nativo do ecossistema ZETTA. Tokenomics controlada, auditável e previsível — sem dependência de queima artificial para valor.</p>
+            <ul class="feature-list">
+              <li>Contrato: <code>0x8aacc38933007ec530c552007e210b4667749df1</code></li>
+              <li>Rede: BSC (BEP-20)</li>
+              <li>Supply Final: 500.000.000 Z (após queima de 500M)</li>
+              <li>Fairlaunch: Pinksale @ $0.10</li>
+              <li>Auditoria: Cyberscope</li>
+            </ul>
+            <div style="margin-top: 1.5rem;">
+              <button id="btn-add-token" class="btn btn-metamask">
+                <svg class="icon-fox" width="20" height="20" viewBox="0 0 142 136.878" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="zettaEyeGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" style="stop-color:#00CCFF;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#0066FF;stop-opacity:1" />
+                    </radialGradient>
+                    <filter id="eyeGlow">
+                      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path style="fill:#FF5C16;" d="M132.682,132.192l-30.583-9.106l-23.063,13.787l-16.092-0.007l-23.077-13.78l-30.569,9.106L0,100.801l9.299-34.839L0,36.507L9.299,0l47.766,28.538h27.85L132.682,0l9.299,36.507l-9.299,29.455l9.299,34.839L132.682,132.192z"/>
+                  <path style="fill:#FF5C16;" d="M9.305,0l47.767,28.558l-1.899,19.599L9.305,0z M39.875,100.814l21.017,16.01l-21.017,6.261C39.875,123.085,39.875,100.814,39.875,100.814z M59.212,74.345l-4.039-26.174L29.317,65.97l-0.014-0.007v0.013l0.08,18.321l10.485-9.951L59.212,74.345z M132.682,0L84.915,28.558l1.893,19.599L132.682,0z M102.113,100.814l-21.018,16.01l21.018,6.261V100.814z M112.678,65.975h0.007v-0.013l-0.006,0.007L86.815,48.171l-4.039,26.174h19.336l10.492,9.95C112.604,84.295,112.678,65.975,112.678,65.975z"/>
+                  <path style="fill:#E34807;" d="M39.868,123.085l-30.569,9.106L0,100.814h39.868C39.868,100.814,39.868,123.085,39.868,123.085z M59.205,74.338l5.839,37.84l-8.093-21.04L29.37,84.295l10.491-9.956h19.344z M102.112,123.085l30.57,9.106l9.299-31.378h-39.869C102.112,100.814,102.112,123.085,102.112,123.085z M82.776,74.338l-5.839,37.84l8.092-21.04l27.583-6.843l-10.498-9.956H82.776z"/>
+                  <path style="fill:#FF8D5D;" d="M0,100.801l9.299-34.839h19.997l0.073,18.327l27.584,6.843l8.092,21.039l-4.16,4.633l-21.017-16.01H0z M141.981,100.801l-9.299-34.839h-19.998l-0.073,18.327l-27.582,6.843l-8.093,21.039l4.159,4.633l21.018-16.01h39.868z M84.915,28.538h-27.85l-1.891,19.599l9.872,64.013h11.891l9.878-64.013z"/>
+                  <path style="fill:#661800;" d="M9.299,0L0,36.507l9.299,29.455h19.997l25.87-17.804L9.299,0z M53.426,81.938h-9.059l-4.932,4.835l17.524,4.344l-3.533-9.186z M132.682,0l9.299,36.507l-9.299,29.455h-19.998L86.815,48.158L132.682,0z M88.568,81.938h9.072l4.932,4.841l-17.544,4.353l3.54-9.201z M79.029,124.385l2.067-7.567l-4.16-4.633h-11.9l-4.159,4.633l2.066,7.567"/>
+                  <path style="fill:#C0C4CD;" d="M79.029,124.384v12.495H62.945v-12.495z"/>
+                  <path style="fill:#E7EBF6;" d="M39.875,123.072l23.083,13.8v-12.495l-2.067-7.566C60.891,116.811,39.875,123.072,39.875,123.072z M102.113,123.072l-23.084,13.8v-12.495l2.067-7.566C81.096,116.811,102.113,123.072,102.113,123.072z"/>
+                  <g filter="url(#eyeGlow)">
+                    <ellipse cx="53" cy="81.9" rx="4.5" ry="6" fill="url(#zettaEyeGrad)" stroke="#00AAFF" stroke-width="0.5"/>
+                    <ellipse cx="53" cy="82.5" rx="1.8" ry="2.8" fill="#000000"/>
+                    <circle cx="53.5" cy="81.5" r="0.8" fill="#FFFFFF" opacity="0.9"/>
+                    <ellipse cx="89" cy="81.9" rx="4.5" ry="6" fill="url(#zettaEyeGrad)" stroke="#00AAFF" stroke-width="0.5"/>
+                    <ellipse cx="89" cy="82.5" rx="1.8" ry="2.8" fill="#000000"/>
+                    <circle cx="89.5" cy="81.5" r="0.8" fill="#FFFFFF" opacity="0.9"/>
+                  </g>
+                  <g opacity="0.4" stroke="#00CCFF" stroke-width="0.8" fill="none">
+                    <line x1="71" y1="38" x2="71" y2="43"/>
+                    <circle cx="71" cy="43" r="1.2" fill="#00CCFF"/>
+                    <line x1="71" y1="43" x2="67" y2="46"/>
+                    <line x1="71" y1="43" x2="75" y2="46"/>
+                    <circle cx="67" cy="46" r="0.8" fill="#00CCFF"/>
+                    <circle cx="75" cy="46" r="0.8" fill="#00CCFF"/>
+                  </g>
+                </svg>
+                <span data-i18n="token.addMetamask">Adicionar à MetaMask</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" class="section">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-label" data-i18n="roadmap.label">Roadmap</span>
+          <h2 class="section-title" data-i18n="roadmap.title">Jornada Estratégica</h2>
+          <p class="section-desc" data-i18n="roadmap.desc">Um plano estruturado para construir a infraestrutura financeira global mais completa e segura.</p>
+        </header>
+
+        <div class="roadmap-timeline" style="display: grid; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+          <div class="roadmap-item" style="background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(0,212,255,0.2); border-radius: 12px; padding: 1.5rem; position: relative;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+              <span style="background: #00d4ff; color: #000; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">FASE 1</span>
+              <span style="color: #c9a955; font-weight: 500;">Estrutura Regulatória</span>
+            </div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem;">Panamá & Dubai (VARA)</h3>
+            <p style="color: #a0a0a0; font-size: 0.9rem;">Estabelecimento de licenças financeiras e estrutura corporativa em jurisdições estratégicas com regulação crypto-friendly.</p>
+          </div>
+
+          <div class="roadmap-item" style="background: linear-gradient(135deg, rgba(0,102,255,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(0,102,255,0.2); border-radius: 12px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+              <span style="background: #0066ff; color: #fff; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">FASE 2</span>
+              <span style="color: #c9a955; font-weight: 500;">Proof-of-Burn</span>
+            </div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem;">Queima de 500M Tokens</h3>
+            <p style="color: #a0a0a0; font-size: 0.9rem;">Redução do supply total de 1B para 500M tokens através de queima verificável on-chain, aumentando a escassez e valor do token.</p>
+          </div>
+
+          <div class="roadmap-item" style="background: linear-gradient(135deg, rgba(201,169,85,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(201,169,85,0.2); border-radius: 12px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+              <span style="background: #c9a955; color: #000; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">FASE 3</span>
+              <span style="color: #00d4ff; font-weight: 500;">Fairlaunch</span>
+            </div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem;">Pinksale Fairlaunch @ $0.10</h3>
+            <p style="color: #a0a0a0; font-size: 0.9rem;">Lançamento público justo na plataforma Pinksale com preço inicial de $0.10 por token, garantindo distribuição democrática.</p>
+          </div>
+
+          <div class="roadmap-item" style="background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(0,212,255,0.2); border-radius: 12px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+              <span style="background: #00d4ff; color: #000; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">FASE 4</span>
+              <span style="color: #c9a955; font-weight: 500;">MVP Z-BANCK</span>
+            </div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem;">Lançamento do Banco Híbrido</h3>
+            <p style="color: #a0a0a0; font-size: 0.9rem;">Primeira versão funcional do Z-BANCK com contas multi-moedas, pagamentos internacionais e integração blockchain.</p>
+          </div>
+
+          <div class="roadmap-item" style="background: linear-gradient(135deg, rgba(0,102,255,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(0,102,255,0.2); border-radius: 12px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+              <span style="background: #0066ff; color: #fff; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">FASE 5</span>
+              <span style="color: #c9a955; font-weight: 500;">Expansão Global</span>
+            </div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem;">Ecossistema Completo</h3>
+            <p style="color: #a0a0a0; font-size: 0.9rem;">Ativação de todos os 23+ produtos do ecossistema, parcerias institucionais e expansão para novos mercados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARCEIROS & LICENÇAS -->
+    <section id="partners" class="section section-alt">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-label" data-i18n="partners.label">Compliance</span>
+          <h2 class="section-title" data-i18n="partners.title">Parceiros & Licenças</h2>
+          <p class="section-desc" data-i18n="partners.desc">Estrutura regulatória sólida em jurisdições estratégicas para operação global.</p>
+        </header>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div style="background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 2rem; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🇵🇦</div>
+            <h3 style="color: #00d4ff; margin-bottom: 0.5rem;">Panamá</h3>
+            <p style="color: #a0a0a0; font-size: 0.9rem;">Estrutura corporativa e licenças financeiras em jurisdição neutro e crypto-friendly.</p>
+          </div>
+          <div style="background: linear-gradient(135deg, rgba(201,169,85,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(201,169,85,0.2); border-radius: 16px; padding: 2rem; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🇦🇪</div>
+            <h3 style="color: #c9a955; margin-bottom: 0.5rem;">Dubai (VARA)</h3>
+            <p style="color: #a0a0a0; font-size: 0.9rem;">Licença VARA (Virtual Assets Regulatory Authority) para operações no Oriente Médio.</p>
+          </div>
+          <div style="background: linear-gradient(135deg, rgba(0,102,255,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(0,102,255,0.2); border-radius: 16px; padding: 2rem; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔐</div>
+            <h3 style="color: #0066ff; margin-bottom: 0.5rem;">Cyberscope</h3>
+            <p style="color: #a0a0a0; font-size: 0.9rem;">Auditoria completa de smart contract e verificação KYC corporativa.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2.5rem;">
+          <span style="background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); color: #00d4ff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">✓ KYC Verificado</span>
+          <span style="background: rgba(201,169,85,0.1); border: 1px solid rgba(201,169,85,0.3); color: #c9a955; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">✓ Smart Contract Auditado</span>
+          <span style="background: rgba(0,102,255,0.1); border: 1px solid rgba(0,102,255,0.3); color: #0066ff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">✓ Compliance AML</span>
+          <span style="background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); color: #00d4ff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">✓ GDPR Ready</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEGURANÇA -->
+    <section id="security" class="section">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-label" data-i18n="security.label">Segurança</span>
+          <h2 class="section-title" data-i18n="security.title">Auditoria Independente</h2>
+          <p class="section-desc" data-i18n="security.desc">A ZETTA mantém auditoria de smart contract e verificação de identidade corporativa completa. Segurança não é opcional — é estrutural.</p>
+        </header>
+
+        <div class="audit-card animate-on-scroll">
+          <div class="audit-label">Auditado por:</div>
+          <div class="audit-logo">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L4 6v6c0 5.55 3.42 10.74 8 12 4.58-1.26 8-6.45 8-12V6l-8-4z" fill="#2DD4BF" stroke="#2DD4BF" stroke-width="1.5"/>
+              <path d="M9 12l2 2 4-4" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="audit-logo-text">Cyber<span>scope</span></span>
+          </div>
+          <div class="audit-date">Dezembro 2024</div>
+          <div class="audit-project">Token ZETTA (Z)</div>
+          <div class="audit-network">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#627EEA"/>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#627EEA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            BSC Mainnet
+          </div>
+          <a href="https://github.com/cyberscope-io/audits/blob/main/3-z/audit.pdf" target="_blank" rel="noopener" class="btn-audit">
+            Ver Auditoria
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <article class="card card-wide animate-on-scroll" style="margin-top: 2.5rem;">
+          <img class="card-icon" src="/assets/icons/icon-security.svg" alt="" width="64" height="64">
+          <div>
+            <h3 class="card-title" data-i18n="security.protection.title">Proteção Multicamada</h3>
+            <p class="card-desc" data-i18n="security.protection.desc">Segurança institucional em todas as camadas da infraestrutura ZETTA.</p>
+            <ul class="feature-list">
+              <li>KYC Verificado: <a href="https://github.com/cyberscope-io/kyc/blob/main/3-z%2Fkyc.png" target="_blank" rel="noopener">Ver Certificado KYC</a></li>
+              <li>Monitoramento contínuo por ZION IA</li>
+              <li>Proteção anti-fraude em nível de protocolo</li>
+              <li>Custódia institucional segura</li>
+            </ul>
+            <div style="margin-top: 1.5rem;">
+              <a href="https://github.com/zettaceo/zetta-official-docs" target="_blank" rel="noopener" class="btn btn-github" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 500; text-decoration: none; transition: all 0.3s ease;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                <span data-i18n="security.github">Documentação Oficial</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- INVESTIDORES -->
+    <section id="investors" class="section section-alt">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-building.svg" alt="" width="64" height="64">
+          <div>
+            <h2 class="card-title" data-i18n="investors.title">Investidores Institucionais</h2>
+            <p class="card-desc" data-i18n="investors.desc">A ZETTA está aberta a parcerias estratégicas com investidores institucionais, fundos e organizações que compartilham a visão de infraestrutura financeira de longo prazo.</p>
+            <ul class="feature-list">
+              <li>Estrutura preparada para diálogo com governos</li>
+              <li>Apresentação institucional sólida</li>
+              <li>Governança estratégica (não populista)</li>
+              <li>Contato: <a href="mailto:investors@zettaword.global">investors@zettaword.global</a></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="logo-img" src="/assets/logo-z.svg" alt="ZETTA" width="40" height="40">
+          <p class="footer-tagline" data-i18n="footer.tagline">A ZETTA não pede espaço. Ela constrói o próprio terreno.</p>
+        </div>
+        <div>
+          <h4 class="footer-nav-title" data-i18n="footer.ecosystem">Ecossistema</h4>
+          <nav class="footer-nav">
+            <a href="#zbanck">Z-BANCK</a>
+            <a href="#zion">ZION IA</a>
+            <a href="#blockchain">Blockchain</a>
+            <a href="#obelisk">Obelisk Wallet</a>
+          </nav>
+        </div>
+        <div>
+          <h4 class="footer-nav-title" data-i18n="footer.resources">Recursos</h4>
+          <nav class="footer-nav">
+            <a href="/whitepaper.html">Whitepaper</a>
+            <a href="/tokenomics.html">Tokenomics</a>
+            <a href="/technical-print.html" target="_blank">Documento Técnico</a>
+            <a href="#roadmap">Roadmap</a>
+          </nav>
+        </div>
+        <div>
+          <h4 class="footer-nav-title" data-i18n="footer.legal">Legal</h4>
+          <nav class="footer-nav">
+            <a href="#security">Auditoria</a>
+            <a href="#security">KYC</a>
+            <a href="/privacy.html">Privacidade</a>
+            <a href="/terms.html">Termos</a>
+          </nav>
+        </div>
+        <div>
+          <h4 class="footer-nav-title" data-i18n="footer.social">Redes Sociais</h4>
+          <div class="social-links">
+            <a href="https://x.com/Zettaword" target="_blank" rel="noopener" aria-label="X (Twitter)" class="social-link">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://t.me/ZETTA_WEB3" target="_blank" rel="noopener" aria-label="Telegram" class="social-link">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/zetta.word" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.757-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span id="year">2025</span> ZETTA WORD. <span data-i18n="footer.copyright">Todos os direitos reservados.</span></p>
+        <p class="footer-copy" data-i18n="footer.infra">Infraestrutura Financeira Global</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/i18n/translations.js"></script>
+  <script src="/scripts/i18n.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/chat-widget.js"></script>
+</body>
+</html>
