@@ -6,7 +6,7 @@
     const canvas = document.getElementById('particleCanvas');
     if (!canvas) return;
     
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas. getContext('2d');
     let width, height;
     let particles = [];
     let shootingStars = [];
@@ -25,6 +25,7 @@
       mouseInteraction: true,
       mouseRepelForce: 0.02,
       shootingStarInterval: 5000,
+      maxShootingStars: 3,
       colors: {
         particle: ['rgba(0, 212, 255, 0.6)', 'rgba(0, 102, 255, 0.5)', 'rgba(255, 255, 255, 0.3)'],
         shootingStar: '#ffffff'
@@ -61,9 +62,9 @@
           }
         }
         this.x += this.speedX;
-        this.y += this.speedY;
+        this.y += this. speedY;
         if (this.x < -50) this.x = width + 50;
-        if (this.x > width + 50) this.x = -50;
+        if (this. x > width + 50) this.x = -50;
         if (this.y < -50) this.y = height + 50;
         if (this.y > height + 50) this.y = -50;
       }
@@ -76,7 +77,7 @@
         if (this.size > 1.5) {
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
-          const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2);
+          const gradient = ctx.createRadialGradient(this.x, this.y, 0, this. x, this.y, this.size * 2);
           gradient.addColorStop(0, 'rgba(0, 212, 255, 0.15)');
           gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
           ctx.fillStyle = gradient;
@@ -100,11 +101,11 @@
           this.x = width + 10;
           this.y = Math.random() * height * 0.4;
         }
-        this.speed = 15 + Math.random() * 10;
+        this. speed = 15 + Math.random() * 10;
         this.angle = Math.PI * 0.75 + (Math.random() - 0.5) * 0.3;
         this.opacity = 1;
         this.trail = [];
-        this.tailLength = 50; // Número de pontos na cauda
+        this.tailLength = 50;
         this.active = true;
       }
       
@@ -114,7 +115,7 @@
         if (this.trail.length > this.tailLength) this.trail.pop();
         
         this.x += Math.cos(this.angle) * this.speed;
-        this.y += Math.sin(this.angle) * this.speed;
+        this.y += Math. sin(this.angle) * this.speed;
         
         // Fade out conforme viaja
         this.opacity -= 0.006;
@@ -149,8 +150,8 @@
           ctx.stroke();
           
           // Segunda camada de cauda mais fina e brilhante
-          ctx.beginPath();
-          ctx.moveTo(this.x, this.y);
+          ctx. beginPath();
+          ctx.moveTo(this.x, this. y);
           for (let i = 0; i < Math.min(this.trail.length, 25); i++) {
             ctx.lineTo(this.trail[i].x, this.trail[i].y);
           }
@@ -162,7 +163,7 @@
         // Partículas de brilho ao longo da cauda
         for (let i = 0; i < this.trail.length; i += 3) {
           const t = this.trail[i];
-          const alpha = (1 - i / this.trail.length) * t.opacity * 0.4;
+          const alpha = (1 - i / this.trail. length) * t.opacity * 0.4;
           const size = (1 - i / this.trail.length) * 1.5;
           
           ctx.beginPath();
@@ -181,7 +182,7 @@
         ctx.beginPath();
         ctx.arc(this.x, this.y, 12, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
-        ctx.fill();
+        ctx. fill();
         
         // Núcleo brilhante
         ctx.beginPath();
@@ -220,7 +221,9 @@
     }
     
     function spawnShootingStar() {
-      shootingStars.push(new ShootingStar());
+      if (shootingStars.length < config.maxShootingStars) {
+        shootingStars.push(new ShootingStar());
+      }
     }
     
     function animate() {
@@ -280,13 +283,14 @@
     };
   }
 
+  // ✅ CORRIGIDO: chainId para BSC (0x38) em vez de Ethereum (0x1)
   const TOKEN = {
     address: '0x8aacc38933007ec530c552007e210b4667749df1',
     symbol: 'Z',
     decimals: 18,
     image: window.location.origin + '/assets/icons/icon-wallet.svg',
-    chainId: '0x1',
-    chainName: 'Ethereum Mainnet'
+    chainId: '0x38',
+    chainName: 'Binance Smart Chain'
   };
 
   let isAddingToken = false;
@@ -365,7 +369,7 @@
   }
 
   function initScrollReveal() {
-    const nodes = document.querySelectorAll('.animate-on-scroll');
+    const nodes = document.querySelectorAll('. animate-on-scroll');
     if (!('IntersectionObserver' in window)) {
       nodes.forEach(function (n) { n.classList.add('in-view'); });
       return;
@@ -374,7 +378,7 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
+          io.unobserve(entry. target);
         }
       });
     }, { threshold: 0.15, rootMargin: '0px' });
@@ -414,7 +418,7 @@
         type: 'ERC20',
         options: {
           address: TOKEN.address,
-          symbol: TOKEN.symbol,
+          symbol: TOKEN. symbol,
           decimals: TOKEN.decimals,
           image: TOKEN.image
         }
@@ -436,7 +440,7 @@
       isAddingToken = false;
       if (btn) {
         btn.disabled = false;
-        btn.removeAttribute('aria-busy');
+        btn. removeAttribute('aria-busy');
         btn.innerHTML = originalText;
       }
     }
@@ -505,7 +509,7 @@
           var x = Math.cos(radian) * radius;
           var y = Math.sin(radian) * radius;
           planet.style.left = 'calc(50% + ' + x + 'px)';
-          planet.style.top = 'calc(50% + ' + y + 'px)';
+          planet. style.top = 'calc(50% + ' + y + 'px)';
         });
       });
     }
