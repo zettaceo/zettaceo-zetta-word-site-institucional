@@ -1,64 +1,203 @@
 <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Gradients -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
     </linearGradient>
+
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#001233;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Planet Gradients -->
+    <radialGradient id="planetBlue1" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#0066ff"/>
+    </radialGradient>
+
+    <radialGradient id="planetBlue2" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#0099ff"/>
+      <stop offset="100%" style="stop-color:#0066cc"/>
+    </radialGradient>
+
+    <radialGradient id="planetGold" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#f0d78c"/>
+      <stop offset="100%" style="stop-color:#c9a955"/>
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="planetGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- Subtle grid -->
+  <!-- Subtle grid pattern -->
   <defs>
-    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(0,212,255,0.03)" stroke-width="0.5"/>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0,212,255,0.02)" stroke-width="0.5"/>
     </pattern>
   </defs>
   <rect width="1200" height="630" fill="url(#grid)"/>
 
-  <!-- Left Content -->
-  <text x="80" y="120" font-family="Arial, sans-serif" font-size="72" font-weight="900" fill="#ffffff" letter-spacing="-2">
-    ZETTA WORD
-  </text>
-  
-  <text x="80" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="300" fill="#00d4ff" letter-spacing="2">
-    INFRAESTRUTURA FINANCEIRA GLOBAL
-  </text>
+  <!-- Radial glow background -->
+  <circle cx="600" cy="315" r="400" fill="url(#coreGlow)" opacity="0.3"/>
 
-  <text x="80" y="260" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="rgba(255,255,255,0.7)">
-    Entidade tecnológica soberana construindo o futuro
-  </text>
-
-  <!-- Features -->
+  <!-- LEFT CONTENT SECTION -->
   <g>
-    <text x="80" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#00d4ff">✓ Blockchain</text>
-    <text x="380" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#00d4ff">✓ Z-BANCK</text>
-    <text x="680" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#00d4ff">✓ OBELISK Wallet</text>
+    <!-- Main Title -->
+    <text x="60" y="100" font-family="Arial, sans-serif" font-size="56" font-weight="900" fill="#ffffff" letter-spacing="-2">
+      ZETTA WORD
+    </text>
+
+    <!-- Tagline -->
+    <text x="60" y="160" font-family="Arial, sans-serif" font-size="20" font-weight="300" fill="#00d4ff" letter-spacing="3">
+      INFRAESTRUTURA FINANCEIRA
+    </text>
+
+    <!-- Description -->
+    <text x="60" y="210" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="rgba(255,255,255,0.7)" letter-spacing="1">
+      Entidade tecnológica soberana
+    </text>
+    <text x="60" y="230" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="rgba(255,255,255,0.7)" letter-spacing="1">
+      construindo o futuro global
+    </text>
+
+    <!-- Feature Pills -->
+    <g>
+      <!-- Pill 1 -->
+      <rect x="60" y="265" width="150" height="30" rx="15" fill="rgba(0,212,255,0.15)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+      <text x="75" y="285" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#00d4ff">✓ Blockchain</text>
+
+      <!-- Pill 2 -->
+      <rect x="225" y="265" width="150" height="30" rx="15" fill="rgba(0,102,255,0.15)" stroke="rgba(0,102,255,0.3)" stroke-width="1"/>
+      <text x="240" y="285" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#0066ff">✓ Z-BANCK</text>
+
+      <!-- Pill 3 -->
+      <rect x="60" y="310" width="150" height="30" rx="15" fill="rgba(201,169,85,0.15)" stroke="rgba(201,169,85,0.3)" stroke-width="1"/>
+      <text x="75" y="330" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#c9a955">✓ Wallet</text>
+
+      <!-- Pill 4 -->
+      <rect x="225" y="310" width="150" height="30" rx="15" fill="rgba(0,212,255,0.15)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+      <text x="240" y="330" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#00d4ff">✓ ZION IA</text>
+    </g>
+
+    <!-- Stats -->
+    <g>
+      <text x="60" y="385" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="rgba(255,255,255,0.5)" letter-spacing="2">23+ PRODUTOS  •  350+ FUNÇÕES  •  24/7 OPERAÇÕES</text>
+    </g>
   </g>
 
-  <g>
-    <text x="80" y="380" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#00d4ff">✓ ZION IA</text>
-    <text x="380" y="380" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#00d4ff">✓ Token Z</text>
-    <text x="680" y="380" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#00d4ff">✓ 23+ Produtos</text>
+  <!-- RIGHT ORBITAL SYSTEM SECTION -->
+  <g transform="translate(900, 315)">
+    <!-- Orbital Circles -->
+    <circle cx="0" cy="0" r="100" fill="none" stroke="rgba(0,212,255,0.15)" stroke-width="1" stroke-dasharray="2,2"/>
+    <circle cx="0" cy="0" r="150" fill="none" stroke="rgba(0,102,255,0.1)" stroke-width="1" stroke-dasharray="2,2"/>
+    <circle cx="0" cy="0" r="200" fill="none" stroke="rgba(201,169,85,0.08)" stroke-width="1" stroke-dasharray="2,2"/>
+
+    <!-- Core Center -->
+    <circle cx="0" cy="0" r="40" fill="url(#coreGlow)" filter="url(#glow)"/>
+    <circle cx="0" cy="0" r="32" fill="rgba(0, 212, 255, 0.2)" stroke="rgba(0, 212, 255, 0.4)" stroke-width="2"/>
+    <text x="-12" y="15" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="#00d4ff" text-anchor="middle">Z</text>
+
+    <!-- ORBIT 1 - Inner Planets (3) -->
+    <!-- Planet 1 -->
+    <g transform="translate(100, 0)">
+      <circle cx="0" cy="0" r="16" fill="url(#planetBlue1)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="16" fill="none" stroke="rgba(0,212,255,0.4)" stroke-width="1" opacity="0.6"/>
+    </g>
+
+    <!-- Planet 2 -->
+    <g transform="translate(-50, 86.6)">
+      <circle cx="0" cy="0" r="14" fill="url(#planetGold)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="14" fill="none" stroke="rgba(201,169,85,0.4)" stroke-width="1" opacity="0.6"/>
+    </g>
+
+    <!-- Planet 3 -->
+    <g transform="translate(-50, -86.6)">
+      <circle cx="0" cy="0" r="14" fill="url(#planetBlue2)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="14" fill="none" stroke="rgba(0,102,255,0.4)" stroke-width="1" opacity="0.6"/>
+    </g>
+
+    <!-- ORBIT 2 - Middle Planets (4) -->
+    <!-- Planet 4 -->
+    <g transform="translate(150, 0)">
+      <circle cx="0" cy="0" r="12" fill="url(#planetBlue1)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(0,212,255,0.3)" stroke-width="1" opacity="0.5"/>
+    </g>
+
+    <!-- Planet 5 -->
+    <g transform="translate(75, 130)">
+      <circle cx="0" cy="0" r="12" fill="url(#planetGold)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(201,169,85,0.3)" stroke-width="1" opacity="0.5"/>
+    </g>
+
+    <!-- Planet 6 -->
+    <g transform="translate(-75, 130)">
+      <circle cx="0" cy="0" r="12" fill="url(#planetBlue2)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(0,102,255,0.3)" stroke-width="1" opacity="0.5"/>
+    </g>
+
+    <!-- Planet 7 -->
+    <g transform="translate(-150, 0)">
+      <circle cx="0" cy="0" r="12" fill="url(#planetBlue1)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(0,212,255,0.3)" stroke-width="1" opacity="0.5"/>
+    </g>
+
+    <!-- ORBIT 3 - Outer Planets (3) -->
+    <!-- Planet 8 -->
+    <g transform="translate(200, 0)">
+      <circle cx="0" cy="0" r="10" fill="url(#planetBlue1)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="rgba(0,212,255,0.2)" stroke-width="1" opacity="0.4"/>
+    </g>
+
+    <!-- Planet 9 -->
+    <g transform="translate(-100, 173)">
+      <circle cx="0" cy="0" r="10" fill="url(#planetGold)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="rgba(201,169,85,0.2)" stroke-width="1" opacity="0.4"/>
+    </g>
+
+    <!-- Planet 10 -->
+    <g transform="translate(-100, -173)">
+      <circle cx="0" cy="0" r="10" fill="url(#planetBlue2)" filter="url(#planetGlow)"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="rgba(0,102,255,0.2)" stroke-width="1" opacity="0.4"/>
+    </g>
   </g>
 
-  <!-- Right Logo -->
-  <g transform="translate(1050, 150)">
-    <circle cx="0" cy="0" r="120" fill="none" stroke="url(#logoGrad)" stroke-width="3" opacity="0.3"/>
-    <circle cx="0" cy="0" r="80" fill="none" stroke="url(#logoGrad)" stroke-width="2" opacity="0.5"/>
-    
-    <text x="-30" y="40" font-family="Arial, sans-serif" font-size="120" font-weight="900" fill="url(#logoGrad)" text-anchor="middle">
-      Z
+  <!-- BOTTOM FOOTER -->
+  <g>
+    <line x1="60" y1="580" x2="1140" y2="580" stroke="rgba(0,212,255,0.1)" stroke-width="1"/>
+    <text x="60" y="610" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="rgba(255,255,255,0.4)" letter-spacing="1">
+      zettaword.global  •  Soberania Tecnológica  •  Infraestrutura Financeira Global
     </text>
   </g>
-
-  <!-- Footer -->
-  <text x="80" y="600" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="rgba(255,255,255,0.5)">
-    zettaword.global — Soberania Tecnológica
-  </text>
 </svg>
