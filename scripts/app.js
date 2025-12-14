@@ -285,8 +285,8 @@
     symbol: 'Z',
     decimals: 18,
     image: window.location.origin + '/assets/icons/icon-wallet.svg',
-    chainId: '0x1',
-    chainName: 'Ethereum Mainnet'
+    chainId: '0x38',
+    chainName: 'Binance Smart Chain'
   };
 
   let isAddingToken = false;
