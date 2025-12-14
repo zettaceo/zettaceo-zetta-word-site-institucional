@@ -2,29 +2,14 @@
   'use strict';
 
   const SUPPORTED_LANGUAGES = [
-    { code: 'pt', name: 'Português', flag: '🇧🇷', region: 'América Latina' },
+    { code: 'pt', name: 'Português', flag: '🇧🇷', region: 'Brasil' },
     { code: 'en', name: 'English', flag: '🇺🇸', region: 'Global' },
-    { code: 'es', name: 'Español', flag: '🇪🇸', region: 'América Latina / Europa' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷', region: 'Europe / Afrique' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪', region: 'Europa' },
-    { code: 'it', name: 'Italiano', flag: '🇮🇹', region: 'Europa' },
-    { code: 'ru', name: 'Русский', flag: '🇷🇺', region: 'Восточная Европа' },
-    { code: 'ar', name: 'العربية', flag: '🇸🇦', region: 'الشرق الأوسط', rtl: true },
-    { code: 'tr', name: 'Türkçe', flag: '🇹🇷', region: 'Orta Doğu / Avrupa' },
-    { code: 'zh', name: '中文', flag: '🇨🇳', region: '亚洲' },
-    { code: 'ja', name: '日本語', flag: '🇯🇵', region: 'アジア' },
-    { code: 'ko', name: '한국어', flag: '🇰🇷', region: '아시아' },
-    { code: 'hi', name: 'हिन्दी', flag: '🇮🇳', region: 'एशिया' },
-    { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩', region: 'Asia' },
-    { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳', region: 'Châu Á' },
-    { code: 'th', name: 'ไทย', flag: '🇹🇭', region: 'เอเชีย' }
+    { code: 'ru', name: 'Русский', flag: '🇷🇺', region: 'Восточная Европа' }
   ];
 
   const REGION_GROUPS = [
-    { name: 'Americas', nameKey: 'americas', codes: ['pt', 'en', 'es'] },
-    { name: 'Europe', nameKey: 'europe', codes: ['en', 'fr', 'de', 'it', 'ru'] },
-    { name: 'Middle East & Africa', nameKey: 'mea', codes: ['ar', 'fr', 'tr'] },
-    { name: 'Asia Pacific', nameKey: 'apac', codes: ['zh', 'ja', 'ko', 'hi', 'id', 'vi', 'th'] }
+    { name: 'Americas', nameKey: 'americas', codes: ['pt', 'en'] },
+    { name: 'Europe & Beyond', nameKey: 'europe', codes: ['ru'] }
   ];
 
   let currentLang = 'pt';
@@ -55,11 +40,37 @@
     return path.split('.').reduce((acc, part) => acc && acc[part], obj);
   }
 
+  function renderFeatureLists(lang) {
+    if (!translations[lang]) return;
+    const t = translations[lang];
+
+    // Renderizar feature lists para todos os cards
+    const featureSections = [
+      { key: 'zbanck', selector: '#zbanck .feature-list' },
+      { key: 'zion', selector: '#zion .feature-list' },
+      { key: 'blockchain', selector: '#blockchain .feature-list' },
+      { key:  'obelisk', selector: '#obelisk .feature-list' }
+    ];
+
+    featureSections.forEach(section => {
+      const element = document.querySelector(section.selector);
+      if (element && t[section.key] && t[section.key]. features) {
+        element.innerHTML = '';
+        t[section.key].features.forEach(feature => {
+          const li = document.createElement('li');
+          li.textContent = feature;
+          element.appendChild(li);
+        });
+      }
+    });
+  }
+
   function applyTranslations(lang) {
     if (!translations[lang]) return;
     
     const t = translations[lang];
     
+    // Aplicar data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       const value = getNestedValue(t, key);
@@ -72,6 +83,7 @@
       }
     });
 
+    // Aplicar data-i18n-html
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
       const key = el.getAttribute('data-i18n-html');
       const value = getNestedValue(t, key);
@@ -80,6 +92,10 @@
       }
     });
 
+    // Renderizar feature lists
+    renderFeatureLists(lang);
+
+    // Atualizar dir e lang
     const html = document.documentElement;
     if (t.rtl) {
       html.setAttribute('dir', 'rtl');
@@ -103,7 +119,7 @@
     if (currentName) currentName.textContent = langData.name;
 
     document.querySelectorAll('.lang-option').forEach(opt => {
-      opt.classList.toggle('active', opt.dataset.lang === lang);
+      opt.classList. toggle('active', opt.dataset.lang === lang);
     });
   }
 
@@ -192,7 +208,7 @@
       regionsContainer.appendChild(regionDiv);
     });
 
-    const header = document.querySelector('.site-header .header-inner');
+    const header = document.querySelector('.site-header . header-inner');
     if (header) {
       const nav = header.querySelector('.nav');
       if (nav) {
@@ -204,7 +220,7 @@
 
     const trigger = selector.querySelector('.lang-trigger');
     const searchInput = dropdown.querySelector('.lang-search');
-    const options = dropdown.querySelectorAll('.lang-option');
+    const options = dropdown.querySelectorAll('. lang-option');
     const regions = dropdown.querySelectorAll('.lang-region');
 
     trigger.addEventListener('click', (e) => {
@@ -334,7 +350,7 @@
         opacity: 0.6;
       }
 
-      .lang-dropdown.active + .lang-trigger .lang-chevron,
+      .lang-dropdown.active + .lang-trigger . lang-chevron,
       .lang-trigger[aria-expanded="true"] .lang-chevron {
         transform: rotate(180deg);
       }
@@ -358,7 +374,7 @@
         z-index: 99999;
       }
 
-      .lang-dropdown.active {
+      . lang-dropdown.active {
         opacity: 1;
         visibility: visible;
         transform: translateY(0) scale(1);
@@ -375,7 +391,7 @@
         width: 6px;
       }
 
-      .lang-dropdown-inner::-webkit-scrollbar-track {
+      . lang-dropdown-inner::-webkit-scrollbar-track {
         background: transparent;
       }
 
@@ -384,7 +400,7 @@
         border-radius: 3px;
       }
 
-      .lang-search-wrap {
+      . lang-search-wrap {
         position: sticky;
         top: 0;
         padding: 0.75rem;
@@ -405,7 +421,7 @@
         transition: all 0.2s ease;
       }
 
-      .lang-search::placeholder {
+      .lang-search:: placeholder {
         color: rgba(255, 255, 255, 0.4);
       }
 
@@ -531,7 +547,7 @@
           border-radius: 12px;
           transform: translateY(-10px);
           opacity: 0;
-          visibility: hidden;
+          visibility:  hidden;
           z-index: 100000;
         }
 
@@ -549,7 +565,7 @@
           padding: 0.875rem 1rem;
         }
 
-        .lang-dropdown-inner {
+        . lang-dropdown-inner {
           padding-bottom: 16px;
           max-height: calc(100vh - 120px);
         }
@@ -596,7 +612,7 @@
   }
 
   window.ZettaI18n = {
-    setLanguage: setLanguage,
+    setLanguage:  setLanguage,
     getCurrentLanguage: () => currentLang,
     getSupportedLanguages: () => SUPPORTED_LANGUAGES,
     getTranslation: (key) => getNestedValue(translations[currentLang], key)
