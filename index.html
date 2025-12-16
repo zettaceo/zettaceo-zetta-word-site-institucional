@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>ZETTA WORD — Infraestrutura Financeira Híbrida Global</title>
+  <meta name="description" content="ZETTA WORD é uma entidade tecnológica soberana que constrói infraestrutura financeira híbrida, auditável e escalável integrando blockchain, wallet institucional, IA e serviços bancários.">
+  <link rel="canonical" href="https://zettaword.global/">
+  <link rel="icon" href="/assets/logo-z.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero">
+        <img class="logo-img" src="/assets/logo-z.svg" alt="ZETTA" width="36" height="36">
+        <span class="brand-text">ZETTA</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="nav">
+        <a class="nav-link" href="#about" data-i18n="nav.about">Sobre</a>
+        <a class="nav-link" href="#ecosystem" data-i18n="nav.ecosystem">Ecossistema</a>
+        <a class="nav-link" href="#token" data-i18n="nav.token">Token</a>
+        <a class="nav-link" href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
+        <a class="nav-link" href="#security" data-i18n="nav.security">Segurança</a>
+        <a class="nav-link" href="#investors" data-i18n="nav.investors">Investidores</a>
+        <a class="nav-link" href="#hero" onclick="alert('Documentação One-Page em atualização.'); return false;" data-i18n="nav.onepage">One-Page</a>
+      </nav>
+    </div>
+  </header>
+
+  <canvas id="particleCanvas" class="particle-canvas" aria-hidden="true"></canvas>
+
+  <main id="main">
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge" data-i18n="hero.badge">Infraestrutura Financeira Global</div>
+          <h1 class="hero-title" data-i18n-html="hero.titleHtml">Construindo o Futuro da <span class="accent">Economia Digital</span></h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">A ZETTA é uma entidade tecnológica soberana que integra blockchain, sistema bancário e IA em uma infraestrutura financeira completa.</p>
+          <div class="hero-actions">
+            <a href="#ecosystem" class="btn btn-primary" data-i18n="hero.cta1">Explorar Ecossistema</a>
+            <a href="#token" class="btn btn-secondary" data-i18n="hero.cta2">Token ZETTA</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="solar-system" id="solarSystem">
+            <div class="gravitational-field"></div>
+            <div class="core"><div class="core-glow"></div><div class="core-symbol">Z</div></div>
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="orbit orbit-3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="zbanck" class="section">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-bank.svg" alt="" width="64" height="64" onerror="this.style.display='none'">
+          <div>
+            <h2 class="card-title" data-i18n="zbank.title">Z-BANK</h2>
+            <p class="card-desc" data-i18n="zbank.desc">O banco híbrido da ZETTA — unindo arquitetura blockchain com infraestrutura bancária.</p>
+            <ul class="feature-list">
+              <li data-i18n="zbank.features.0">Pagamentos globais instantâneos</li>
+              <li data-i18n="zbank.features.1">Contas multi-moedas</li>
+              <li data-i18n="zbank.features.2">Cartões internacionais</li>
+              <li data-i18n="zbank.features.3">Custódia institucional segura</li>
+              <li data-i18n="zbank.features.4">Integração direta com blockchain</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="zion" class="section section-alt">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-ai.svg" alt="" width="64" height="64" onerror="this.style.display='none'">
+          <div>
+            <h2 class="card-title" data-i18n="zion.title">ZION AI</h2>
+            <p class="card-desc" data-i18n="zion.desc">O cérebro estratégico da ZETTA para segurança e automação.</p>
+            <ul class="feature-list">
+              <li data-i18n="zion.features.0">Análise estratégica em tempo real</li>
+              <li data-i18n="zion.features.1">Detecção de fraudes e riscos</li>
+              <li data-i18n="zion.features.2">Auditoria contínua</li>
+              <li data-i18n="zion.features.3">Suporte inteligente</li>
+              <li data-i18n="zion.features.4">Defesa da integridade</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="blockchain" class="section">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-blockchain.svg" alt="" width="64" height="64" onerror="this.style.display='none'">
+          <div>
+            <h2 class="card-title" data-i18n="blockchain.title">Blockchain ZETTA</h2>
+            <p class="card-desc" data-i18n="blockchain.desc">Rede focada em segurança institucional e compliance.</p>
+            <ul class="feature-list">
+              <li data-i18n="blockchain.features.0">Módulos nativos de KYC/KYB</li>
+              <li data-i18n="blockchain.features.1">Anti-fraude no protocolo</li>
+              <li data-i18n="blockchain.features.2">Smart contracts auditáveis</li>
+              <li data-i18n="blockchain.features.3">Alta escalabilidade</li>
+              <li data-i18n="blockchain.features.4">Interoperabilidade</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="obelisk" class="section section-alt">
+      <div class="container">
+        <article class="card card-wide animate-on-scroll">
+          <img class="card-icon" src="/assets/icons/icon-wallet.svg" alt="" width="64" height="64" onerror="this.style.display='none'">
+          <div>
+            <h2 class="card-title" data-i18n="obelisk.title">OBELISK-Z Wallet</h2>
+            <p class="card-desc" data-i18n="obelisk.desc">Carteira 100% descentralizada com segurança multicamada.</p>
+            <ul class="feature-list">
+              <li data-i18n="obelisk.features.0">+350 funções avançadas</li>
+              <li data-i18n="obelisk.features.1">Modo Fantasma (Privacidade)</li>
+              <li data-i18n="obelisk.features.2">Cofre de segurança</li>
+              <li data-i18n="obelisk.features.3">DeFi Nativo</li>
+              <li data-i18n="obelisk.features.4">Suporte a Smart-Assets</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="ecosystem" class="section">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-label" data-i18n="ecosystem.label">Ecossistema</span>
+          <h2 class="section-title" data-i18n="ecosystem.title">Infraestrutura Completa</h2>
+        </header>
+        <div class="ecosystem-grid">
+          <div class="eco-card">
+            <div class="eco-icon"><span style="font-size:24px">🏦</span></div>
+            <div class="eco-body">Z-BANK</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon"><span style="font-size:24px">🧠</span></div>
+            <div class="eco-body">ZION IA</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon"><span style="font-size:24px">🔗</span></div>
+            <div class="eco-body">Blockchain</div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-icon"><span style="font-size:24px">🔐</span></div>
+            <div class="eco-body">Obelisk Wallet</div>
+          </div>
+          <div class="eco-card"><div class="eco-body">Z-PAD</div></div>
+          <div class="eco-card"><div class="eco-body">ZETTA Pay</div></div>
+          <div class="eco-card"><div class="eco-body">ZETTA Earn</div></div>
+          <div class="eco-card"><div class="eco-body">ZETTA Bridge</div></div>
+          <div class="eco-card"><div class="eco-body">ZETTA Swap</div></div>
+          <div class="eco-card"><div class="eco-body">ZETTA Labs</div></div>
+          <div class="eco-card"><div class="eco-body">ZETTA ID</div></div>
+          <div class="eco-card"><div class="eco-body">ZETTA Cloud</div></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="brand-text">ZETTA</span>
+            <p class="footer-tagline" data-i18n="footer.tagline">A ZETTA não pede espaço. Ela constrói o próprio terreno.</p>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.ecosystem">Ecossistema</h4>
+            <nav class="footer-nav">
+              <a href="#zbanck">Z-BANK</a>
+              <a href="#zion">ZION IA</a>
+            </nav>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 ZETTA WORD.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/scripts/i18n/translations.js"></script>
+  <script src="/scripts/i18n.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/chat-widget.js"></script>
+</body>
+</html>
