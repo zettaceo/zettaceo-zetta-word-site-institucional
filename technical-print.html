@@ -1,0 +1,1421 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>ZETTA Technical Documentation v1.0</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --primary: #00d4ff;
+      --secondary: #0066ff;
+      --accent: #c9a955;
+      --success: #00c853;
+      --dark: #0a0a0f;
+      --darker: #050508;
+      --light: #ffffff;
+      --gray: #8892a0;
+      --gradient-1: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+      --gradient-2: linear-gradient(135deg, #c9a955 0%, #f0d78c 50%, #c9a955 100%);
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 11pt;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background: var(--darker);
+    }
+    
+    .cover {
+      min-height: 100vh;
+      background: var(--darker);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+    
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 70% 30%, rgba(0,212,255,0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 30% 70%, rgba(0,102,255,0.08) 0%, transparent 50%);
+    }
+    
+    .cover-content { position: relative; z-index: 1; }
+    
+    .logo-container {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 40px;
+      background: var(--gradient-1);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 80px rgba(0,212,255,0.4);
+      position: relative;
+    }
+    
+    .logo-z {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 90px;
+      font-weight: 700;
+      color: var(--darker);
+    }
+    
+    .cover h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 42pt;
+      font-weight: 700;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+    
+    .cover-subtitle {
+      font-size: 16pt;
+      font-weight: 400;
+      color: var(--light);
+      margin-bottom: 10px;
+    }
+    
+    .cover-version {
+      font-size: 12pt;
+      color: var(--gray);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+    }
+    
+    .cover-divider {
+      width: 120px;
+      height: 2px;
+      background: var(--gradient-2);
+      margin: 0 auto 50px;
+    }
+    
+    .cover-desc {
+      font-size: 12pt;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+    
+    .badge-row {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,212,255,0.1);
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: 30px;
+      padding: 8px 16px;
+      font-size: 10pt;
+      color: var(--primary);
+    }
+    
+    .cover-footer {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+    
+    .cover-footer p {
+      font-size: 9pt;
+      color: var(--gray);
+      opacity: 0.6;
+    }
+    
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 50px;
+      background: var(--darker);
+    }
+    
+    .toc {
+      page-break-after: always;
+      padding: 60px 0;
+    }
+    
+    .toc h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24pt;
+      color: var(--primary);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    
+    .toc-list {
+      list-style: none;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .toc-item {
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .toc-number {
+      width: 35px;
+      height: 35px;
+      background: var(--gradient-1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--darker);
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    
+    .toc-title {
+      flex: 1;
+      font-size: 12pt;
+      color: var(--light);
+    }
+    
+    .section {
+      margin-bottom: 50px;
+      page-break-inside: avoid;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(0,212,255,0.3);
+    }
+    
+    .section-number {
+      width: 50px;
+      height: 50px;
+      background: var(--gradient-1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18pt;
+      font-weight: 700;
+      color: var(--darker);
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    
+    .section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22pt;
+      font-weight: 600;
+      color: var(--light);
+    }
+    
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14pt;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 25px 0 12px;
+    }
+    
+    h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12pt;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 20px 0 10px;
+    }
+    
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+      color: #c0c0c0;
+    }
+    
+    .highlight {
+      background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(0,102,255,0.05) 100%);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 25px;
+      margin: 20px 0;
+    }
+    
+    .highlight p {
+      margin: 0;
+      color: var(--light);
+    }
+    
+    .highlight-gold {
+      background: linear-gradient(135deg, rgba(201,169,85,0.12) 0%, rgba(201,169,85,0.04) 100%);
+      border-left-color: var(--accent);
+    }
+    
+    .code-block {
+      background: #0d1117;
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      font-family: 'Space Mono', monospace;
+      font-size: 10pt;
+      color: var(--primary);
+      overflow-x: auto;
+    }
+    
+    .arch-diagram {
+      background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 30px 0;
+      text-align: center;
+    }
+    
+    .arch-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14pt;
+      color: var(--light);
+      margin-bottom: 30px;
+    }
+    
+    .layer-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .layer {
+      background: linear-gradient(135deg, rgba(0,212,255,0.15) 0%, rgba(0,102,255,0.08) 100%);
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .layer-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12pt;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    
+    .layer-desc {
+      font-size: 10pt;
+      color: var(--gray);
+    }
+    
+    .layer-core {
+      background: linear-gradient(135deg, rgba(201,169,85,0.2) 0%, rgba(201,169,85,0.1) 100%);
+      border-color: var(--accent);
+    }
+    
+    .layer-core .layer-name { color: var(--accent); }
+    
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 25px 0;
+    }
+    
+    .module-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 25px;
+    }
+    
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .module-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    
+    .module-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13pt;
+      font-weight: 600;
+      color: var(--light);
+    }
+    
+    .module-desc {
+      font-size: 10pt;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    
+    .module-features {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .module-feature {
+      font-size: 9pt;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+    }
+    
+    .spec-table th {
+      background: rgba(0,212,255,0.15);
+      color: var(--primary);
+      font-size: 10pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 15px;
+      text-align: left;
+      border-bottom: 2px solid var(--primary);
+    }
+    
+    .spec-table td {
+      padding: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 11pt;
+      color: var(--light);
+    }
+    
+    .spec-table tr:hover td {
+      background: rgba(255,255,255,0.02);
+    }
+    
+    .status-active {
+      display: inline-block;
+      background: rgba(0,200,83,0.2);
+      color: var(--success);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 9pt;
+      font-weight: 600;
+    }
+    
+    .status-dev {
+      display: inline-block;
+      background: rgba(0,212,255,0.2);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 9pt;
+      font-weight: 600;
+    }
+    
+    .status-planned {
+      display: inline-block;
+      background: rgba(201,169,85,0.2);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 9pt;
+      font-weight: 600;
+    }
+    
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+    }
+    
+    .security-item {
+      background: linear-gradient(135deg, rgba(0,200,83,0.1) 0%, rgba(0,150,80,0.05) 100%);
+      border: 1px solid rgba(0,200,83,0.3);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .security-icon {
+      font-size: 28pt;
+      margin-bottom: 10px;
+    }
+    
+    .security-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11pt;
+      color: var(--success);
+      font-weight: 600;
+    }
+    
+    .security-desc {
+      font-size: 9pt;
+      color: var(--gray);
+      margin-top: 5px;
+    }
+    
+    .roadmap-container {
+      position: relative;
+      padding-left: 40px;
+      margin: 30px 0;
+    }
+    
+    .roadmap-container::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+    }
+    
+    .roadmap-phase {
+      position: relative;
+      padding: 20px 0;
+    }
+    
+    .roadmap-phase::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 25px;
+      width: 16px;
+      height: 16px;
+      background: var(--gradient-1);
+      border-radius: 50%;
+      border: 3px solid var(--darker);
+    }
+    
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+    
+    .phase-badge {
+      background: var(--gradient-1);
+      color: var(--darker);
+      font-size: 9pt;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    
+    .phase-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13pt;
+      color: var(--light);
+      font-weight: 600;
+    }
+    
+    .phase-items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .phase-items li {
+      font-size: 10pt;
+      color: var(--gray);
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .phase-items li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    
+    ul {
+      margin: 15px 0 15px 20px;
+      list-style: none;
+    }
+    
+    li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      color: #c0c0c0;
+    }
+    
+    li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+    
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+    }
+    
+    .partner-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .partner-name {
+      font-size: 10pt;
+      color: var(--light);
+      font-weight: 500;
+    }
+    
+    .partner-type {
+      font-size: 8pt;
+      color: var(--gray);
+      margin-top: 5px;
+    }
+    
+    .footer {
+      margin-top: 60px;
+      padding: 40px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28pt;
+      font-weight: 700;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+    
+    .footer-disclaimer {
+      font-size: 9pt;
+      color: var(--gray);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .footer-copyright {
+      margin-top: 25px;
+      font-size: 9pt;
+      color: rgba(255,255,255,0.3);
+    }
+    
+    @media print {
+      body { background: #fff; color: #222; }
+      .cover { background: #fff; }
+      .cover::before { display: none; }
+      .cover h1, .footer-logo { 
+        -webkit-text-fill-color: #0066ff;
+        color: #0066ff;
+      }
+      .section-number, .toc-number, .logo-container, .phase-badge {
+        background: #0066ff;
+        color: #fff;
+      }
+      p, li { color: #333; }
+      @page { margin: 1.5cm; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-content">
+    <div class="logo-container">
+      <span class="logo-z">Z</span>
+    </div>
+    <h1>TECHNICAL DOCUMENTATION</h1>
+    <p class="cover-subtitle">Arquitetura e Especificações do Ecossistema</p>
+    <p class="cover-version">Versão 1.0 — Dezembro 2025</p>
+    <div class="cover-divider"></div>
+    
+    <p class="cover-desc">Documentação técnica completa do ecossistema ZETTA WORD, incluindo arquitetura de sistema, especificações de módulos, integrações, segurança e roadmap de desenvolvimento.</p>
+    
+    <div class="badge-row">
+      <span class="badge">Blockchain Própria</span>
+      <span class="badge">17+ Módulos</span>
+      <span class="badge">Multi-Chain</span>
+      <span class="badge">IA Integrada</span>
+    </div>
+  </div>
+  
+  <div class="cover-footer">
+    <p>ZETTA WORD — Documento Técnico Institucional</p>
+  </div>
+</div>
+
+<div class="content toc">
+  <h2>Índice</h2>
+  <ul class="toc-list">
+    <li class="toc-item"><span class="toc-number">01</span><span class="toc-title">Visão Geral da Arquitetura</span></li>
+    <li class="toc-item"><span class="toc-number">02</span><span class="toc-title">Stack Tecnológico</span></li>
+    <li class="toc-item"><span class="toc-number">03</span><span class="toc-title">Blockchain ZETTA</span></li>
+    <li class="toc-item"><span class="toc-number">04</span><span class="toc-title">Módulos do Ecossistema</span></li>
+    <li class="toc-item"><span class="toc-number">05</span><span class="toc-title">ZION — Sistema de IA</span></li>
+    <li class="toc-item"><span class="toc-number">06</span><span class="toc-title">Obelisk-Z Wallet</span></li>
+    <li class="toc-item"><span class="toc-number">07</span><span class="toc-title">Z-BANCK — Infraestrutura Bancária</span></li>
+    <li class="toc-item"><span class="toc-number">08</span><span class="toc-title">Segurança e Compliance</span></li>
+    <li class="toc-item"><span class="toc-number">09</span><span class="toc-title">Integrações e APIs</span></li>
+    <li class="toc-item"><span class="toc-number">10</span><span class="toc-title">Roadmap Técnico</span></li>
+    <li class="toc-item"><span class="toc-number">11</span><span class="toc-title">Estrutura Regulatória</span></li>
+    <li class="toc-item"><span class="toc-number">12</span><span class="toc-title">Parcerias Estratégicas</span></li>
+  </ul>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">01</div>
+      <h2>Visão Geral da Arquitetura</h2>
+    </div>
+    
+    <p>O ecossistema ZETTA WORD é construído sobre uma arquitetura modular de múltiplas camadas, projetada para escalabilidade, segurança e interoperabilidade entre serviços financeiros tradicionais e descentralizados.</p>
+    
+    <div class="arch-diagram">
+      <h3 class="arch-title">Arquitetura em Camadas</h3>
+      <div class="layer-stack">
+        <div class="layer">
+          <div class="layer-name">Camada de Aplicação</div>
+          <div class="layer-desc">Wallet, Pay, Swap, Earn, Launchpad, Terminal</div>
+        </div>
+        <div class="layer">
+          <div class="layer-name">Camada de Serviços</div>
+          <div class="layer-desc">ZION IA, KYC/KYB, Governance, Analytics</div>
+        </div>
+        <div class="layer">
+          <div class="layer-name">Camada de Infraestrutura</div>
+          <div class="layer-desc">Z-BANCK, Bridge, Cloud, Verify</div>
+        </div>
+        <div class="layer layer-core">
+          <div class="layer-name">Camada Core</div>
+          <div class="layer-desc">Blockchain ZETTA, Smart Contracts, Token Z</div>
+        </div>
+      </div>
+    </div>
+    
+    <h3>Princípios Arquiteturais</h3>
+    <ul>
+      <li><strong>Modularidade:</strong> Cada componente é independente mas integrado</li>
+      <li><strong>Escalabilidade Horizontal:</strong> Crescimento sem reescrita estrutural</li>
+      <li><strong>Neutralidade de Rede:</strong> Compatível com múltiplas blockchains</li>
+      <li><strong>Segurança por Design:</strong> Isolamento de riscos e auditabilidade</li>
+      <li><strong>Interoperabilidade:</strong> APIs REST e SDKs para integrações</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <h2>Stack Tecnológico</h2>
+    </div>
+    
+    <p>A infraestrutura ZETTA utiliza tecnologias de ponta para garantir performance, segurança e confiabilidade em escala global.</p>
+    
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Tecnologia</th>
+          <th>Função</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Smart Contracts</td>
+          <td>Solidity 0.8.25</td>
+          <td>Lógica on-chain</td>
+        </tr>
+        <tr>
+          <td>Blockchain Primária</td>
+          <td>BNB Smart Chain</td>
+          <td>Rede principal do token</td>
+        </tr>
+        <tr>
+          <td>Cross-Chain</td>
+          <td>LayerZero / Wormhole</td>
+          <td>Bridges multi-chain</td>
+        </tr>
+        <tr>
+          <td>Backend Services</td>
+          <td>Node.js / Go</td>
+          <td>APIs e microserviços</td>
+        </tr>
+        <tr>
+          <td>Database</td>
+          <td>PostgreSQL / Redis</td>
+          <td>Persistência e cache</td>
+        </tr>
+        <tr>
+          <td>AI/ML</td>
+          <td>Python / TensorFlow</td>
+          <td>Sistema ZION</td>
+        </tr>
+        <tr>
+          <td>Infrastructure</td>
+          <td>AWS / GCP Multi-Region</td>
+          <td>Cloud distribuído</td>
+        </tr>
+        <tr>
+          <td>Security</td>
+          <td>Gnosis Safe / Timelock</td>
+          <td>Multisig e governança</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">03</div>
+      <h2>Blockchain ZETTA</h2>
+    </div>
+    
+    <p>A Blockchain ZETTA é uma rede Layer-1 proprietária em desenvolvimento, projetada especificamente para aplicações financeiras institucionais com foco em compliance, segurança e escalabilidade.</p>
+    
+    <h3>Características Técnicas</h3>
+    <ul>
+      <li>Consenso híbrido (PoS + PoA) para alta throughput</li>
+      <li>Suporte nativo a KYC/KYB on-chain</li>
+      <li>Mecanismos anti-scam em nível de protocolo</li>
+      <li>Smart contracts compatíveis com EVM</li>
+      <li>Pontes nativas para Ethereum, BSC, Polygon</li>
+      <li>Finalidade de transação &lt; 3 segundos</li>
+      <li>Taxas previsíveis e baixas</li>
+    </ul>
+    
+    <h3>Módulos On-Chain</h3>
+    <ul>
+      <li><strong>KYC Module:</strong> Verificação de identidade integrada</li>
+      <li><strong>KYB Module:</strong> Verificação de empresas</li>
+      <li><strong>Anti-Scam Module:</strong> Detecção de fraudes em tempo real</li>
+      <li><strong>Governance Module:</strong> Votação e propostas on-chain</li>
+      <li><strong>Vesting Module:</strong> Locks e cronogramas de liberação</li>
+    </ul>
+    
+    <div class="highlight-gold">
+      <p><strong>Status:</strong> Em desenvolvimento. Fase de testnet prevista para 2025. Mainnet após auditorias completas e testes de stress.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <h2>Módulos do Ecossistema</h2>
+    </div>
+    
+    <p>O ecossistema ZETTA é composto por 23 módulos integrados, cada um projetado para uma função específica dentro da infraestrutura financeira híbrida.</p>
+    
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🏦</div>
+          <div class="module-name">Z-BANCK</div>
+        </div>
+        <div class="module-desc">Banco híbrido com conta multimoeda, IBAN, PIX cripto e cartões físicos/virtuais.</div>
+        <div class="module-features">
+          <div class="module-feature">• Conta multimoeda (fiat + cripto)</div>
+          <div class="module-feature">• Cartões internacionais</div>
+          <div class="module-feature">• On/off ramp integrado</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🧠</div>
+          <div class="module-name">ZION IA</div>
+        </div>
+        <div class="module-desc">Sistema de inteligência artificial para orquestração de risco e automação de compliance.</div>
+        <div class="module-features">
+          <div class="module-feature">• Análise de risco em tempo real</div>
+          <div class="module-feature">• Detecção de fraudes</div>
+          <div class="module-feature">• Automação de compliance</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">💼</div>
+          <div class="module-name">Obelisk-Z Wallet</div>
+        </div>
+        <div class="module-desc">Carteira Web3 institucional com +350 funções, multichain e custódia segura.</div>
+        <div class="module-features">
+          <div class="module-feature">• +350 funções integradas</div>
+          <div class="module-feature">• Modo Fantasma (privacidade)</div>
+          <div class="module-feature">• Cofre multicamada</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🚀</div>
+          <div class="module-name">Z-PAD</div>
+        </div>
+        <div class="module-desc">Launchpad para lançamento e incubação de projetos selecionados.</div>
+        <div class="module-features">
+          <div class="module-feature">• Avaliação técnica rigorosa</div>
+          <div class="module-feature">• Acesso controlado</div>
+          <div class="module-feature">• Participação progressiva</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">💳</div>
+          <div class="module-name">ZETTA Pay</div>
+        </div>
+        <div class="module-desc">Sistema de pagamentos com on/off ramps e APIs para merchants.</div>
+        <div class="module-features">
+          <div class="module-feature">• Integração com PSPs</div>
+          <div class="module-feature">• APIs para merchants</div>
+          <div class="module-feature">• Pagamentos globais</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">📈</div>
+          <div class="module-name">ZETTA Earn</div>
+        </div>
+        <div class="module-desc">Plataforma de staking e geração de rendimento sustentável.</div>
+        <div class="module-features">
+          <div class="module-feature">• Staking flexível</div>
+          <div class="module-feature">• Programas de incentivo</div>
+          <div class="module-feature">• Recompensas transparentes</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🔄</div>
+          <div class="module-name">ZETTA Swap</div>
+        </div>
+        <div class="module-desc">DEX multichain com liquidez programática e ferramentas para market makers.</div>
+        <div class="module-features">
+          <div class="module-feature">• Swap multichain</div>
+          <div class="module-feature">• Pools institucionais</div>
+          <div class="module-feature">• Liquidez agregada</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🌉</div>
+          <div class="module-name">ZETTA Bridge</div>
+        </div>
+        <div class="module-desc">Ponte cross-chain para transferência segura de ativos entre redes.</div>
+        <div class="module-features">
+          <div class="module-feature">• Multi-chain suportado</div>
+          <div class="module-feature">• Taxas competitivas</div>
+          <div class="module-feature">• Segurança auditada</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🔧</div>
+          <div class="module-name">ZETTA Builder</div>
+        </div>
+        <div class="module-desc">Ferramentas para criar tokens, dApps e interfaces seguras com KYC embutido.</div>
+        <div class="module-features">
+          <div class="module-feature">• Templates prontos</div>
+          <div class="module-feature">• KYC/KYB integrado</div>
+          <div class="module-feature">• Auditoria automatizada</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🔍</div>
+          <div class="module-name">ZETTA Scan</div>
+        </div>
+        <div class="module-desc">Explorador blockchain e ferramenta de auditoria on-chain.</div>
+        <div class="module-features">
+          <div class="module-feature">• Proof packs verificáveis</div>
+          <div class="module-feature">• Detecção anti-scam</div>
+          <div class="module-feature">• Monitor de tokens</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">⚖️</div>
+          <div class="module-name">ZETTA Governance</div>
+        </div>
+        <div class="module-desc">Modelos de governança com multisig, timelock e votação on-chain.</div>
+        <div class="module-features">
+          <div class="module-feature">• Multisig institucional</div>
+          <div class="module-feature">• Timelock para mudanças</div>
+          <div class="module-feature">• Controle de acesso</div>
+        </div>
+      </div>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">📊</div>
+          <div class="module-name">ZETTA Analytics</div>
+        </div>
+        <div class="module-desc">Dashboard de relatórios e análise de dados do ecossistema.</div>
+        <div class="module-features">
+          <div class="module-feature">• Relatórios em tempo real</div>
+          <div class="module-feature">• Métricas on-chain</div>
+          <div class="module-feature">• Exportação de dados</div>
+        </div>
+      </div>
+    </div>
+    
+    <h3>Módulos Adicionais</h3>
+    <ul>
+      <li><strong>ZETTA ID:</strong> Sistema de identidade digital descentralizada</li>
+      <li><strong>ZETTA Passport:</strong> Credenciais verificáveis on-chain</li>
+      <li><strong>ZETTA Academy:</strong> Plataforma educacional blockchain</li>
+      <li><strong>ZETTA Cloud:</strong> Armazenamento descentralizado</li>
+      <li><strong>ZETTA Terminal:</strong> Dashboard profissional para traders</li>
+      <li><strong>ZETTA Market:</strong> Marketplace de ativos digitais</li>
+      <li><strong>ZETTA Verify:</strong> Sistema de verificação e autenticação</li>
+      <li><strong>ZETTA Enterprise:</strong> Soluções corporativas B2B</li>
+      <li><strong>ZETTA Hub:</strong> Portal de parceiros e integrações</li>
+      <li><strong>ZETTA Labs:</strong> Centro de P&D e inovação</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">05</div>
+      <h2>ZION — Sistema de IA</h2>
+    </div>
+    
+    <p>ZION é o sistema de inteligência artificial proprietário da ZETTA, projetado para orquestração de risco, automação de compliance e suporte operacional inteligente.</p>
+    
+    <div class="highlight">
+      <p>ZION não é um chatbot. É um sistema de IA empresarial focado em segurança, análise de risco e automação de processos críticos do ecossistema.</p>
+    </div>
+    
+    <h3>Capacidades do ZION</h3>
+    <ul>
+      <li><strong>Orquestração de Risco:</strong> Análise contínua de transações e comportamentos suspeitos</li>
+      <li><strong>Automação de Compliance:</strong> Verificação automática de KYC/KYB e relatórios regulatórios</li>
+      <li><strong>Detecção de Fraudes:</strong> Identificação de padrões maliciosos em tempo real</li>
+      <li><strong>Análise de Mercado:</strong> Monitoramento de condições de mercado e liquidez</li>
+      <li><strong>Suporte Operacional:</strong> Automação de processos internos e atendimento inteligente</li>
+      <li><strong>Defesa do Ecossistema:</strong> Proteção ativa contra ataques e manipulações</li>
+    </ul>
+    
+    <h3>Stack de IA</h3>
+    <ul>
+      <li>Modelos de machine learning treinados em dados financeiros</li>
+      <li>Processamento de linguagem natural para análise de documentos</li>
+      <li>Computer vision para verificação de identidade</li>
+      <li>Sistemas de regras para compliance regulatório</li>
+      <li>Pipeline de dados em tempo real para decisões instantâneas</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">06</div>
+      <h2>Obelisk-Z Wallet</h2>
+    </div>
+    
+    <p>A Obelisk-Z é a carteira oficial do ecossistema ZETTA, desenvolvida com foco em segurança institucional, privacidade avançada e integração completa com todos os módulos.</p>
+    
+    <h3>Especificações Técnicas</h3>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>Especificação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Redes Suportadas</td>
+          <td>Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, +20 redes</td>
+        </tr>
+        <tr>
+          <td>Padrões de Token</td>
+          <td>ERC-20, ERC-721, ERC-1155, BEP-20, e equivalentes</td>
+        </tr>
+        <tr>
+          <td>Funções Integradas</td>
+          <td>350+ funções avançadas</td>
+        </tr>
+        <tr>
+          <td>Segurança</td>
+          <td>Cofre multicamada, biometria, 2FA, recuperação social</td>
+        </tr>
+        <tr>
+          <td>Privacidade</td>
+          <td>Modo Fantasma, transações privadas, mixing opcional</td>
+        </tr>
+        <tr>
+          <td>Integrações DeFi</td>
+          <td>Swap, Stake, Farm, Bridge nativos</td>
+        </tr>
+        <tr>
+          <td>Plataformas</td>
+          <td>iOS, Android, Web, Desktop, Extensão Browser</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h3>Recursos de Segurança</h3>
+    <ul>
+      <li>Geração de chaves offline com entropia de hardware</li>
+      <li>Cofre com timelock para transações de alto valor</li>
+      <li>Whitelist de endereços com aprovação em múltiplas etapas</li>
+      <li>Integração com hardware wallets (Ledger, Trezor)</li>
+      <li>Alertas de segurança alimentados por ZION IA</li>
+      <li>Simulação de transações antes da execução</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">07</div>
+      <h2>Z-BANCK — Infraestrutura Bancária</h2>
+    </div>
+    
+    <p>O Z-BANCK é a camada bancária híbrida do ecossistema, conectando serviços financeiros tradicionais com a infraestrutura blockchain da ZETTA.</p>
+    
+    <h3>Serviços Bancários</h3>
+    <ul>
+      <li><strong>Conta Multimoeda:</strong> Suporte a múltiplas moedas fiat e criptomoedas</li>
+      <li><strong>IBAN Internacional:</strong> Conta bancária com IBAN para recebimentos globais</li>
+      <li><strong>PIX Cripto:</strong> Transferências instantâneas entre fiat e cripto</li>
+      <li><strong>Cartões:</strong> Cartões físicos e virtuais Visa/Mastercard</li>
+      <li><strong>On/Off Ramp:</strong> Conversão fiat-cripto com taxas competitivas</li>
+      <li><strong>Custódia Institucional:</strong> Custódia segura para empresas</li>
+    </ul>
+    
+    <h3>Arquitetura de Integração</h3>
+    <ul>
+      <li>APIs REST para integração com sistemas bancários legados</li>
+      <li>Conexão com emissores de cartão (program managers)</li>
+      <li>Integração com provedores de pagamento (PSPs)</li>
+      <li>Compliance automatizado via ZION IA</li>
+      <li>Relatórios regulatórios automáticos</li>
+    </ul>
+    
+    <div class="highlight-gold">
+      <p><strong>Status:</strong> MVP em desenvolvimento privado. Parcerias com emissores de cartão em negociação. Lançamento público após obtenção de licenças necessárias.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">08</div>
+      <h2>Segurança e Compliance</h2>
+    </div>
+    
+    <p>A segurança é um pilar fundamental do ecossistema ZETTA, implementada em todas as camadas da arquitetura.</p>
+    
+    <div class="security-grid">
+      <div class="security-item">
+        <div class="security-icon">🔒</div>
+        <div class="security-title">Auditoria Cyberscope</div>
+        <div class="security-desc">Contrato auditado com 0 vulnerabilidades críticas</div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">✓</div>
+        <div class="security-title">KYC Verificado</div>
+        <div class="security-desc">Equipe fundadora verificada publicamente</div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">🛡️</div>
+        <div class="security-title">Multisig Gnosis</div>
+        <div class="security-desc">Operações críticas protegidas por multisig</div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">⏱️</div>
+        <div class="security-title">Timelock</div>
+        <div class="security-desc">Mudanças com período de aviso prévio</div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">🔐</div>
+        <div class="security-title">LP Lock</div>
+        <div class="security-desc">Liquidez travada por 12+ meses</div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">🤖</div>
+        <div class="security-title">ZION Monitoring</div>
+        <div class="security-desc">Monitoramento 24/7 por IA</div>
+      </div>
+    </div>
+    
+    <h3>Práticas de Desenvolvimento Seguro</h3>
+    <ul>
+      <li>Code review obrigatório para todas as mudanças</li>
+      <li>Testes automatizados com cobertura &gt;90%</li>
+      <li>Auditorias regulares de terceiros</li>
+      <li>Bug bounty program para descoberta de vulnerabilidades</li>
+      <li>Processo de deploy com múltiplas aprovações</li>
+    </ul>
+    
+    <h3>Compliance Regulatório</h3>
+    <ul>
+      <li>Estrutura KYC/KYB robusta para todos os usuários</li>
+      <li>Monitoramento de transações (AML/CFT)</li>
+      <li>Relatórios regulatórios automáticos</li>
+      <li>Políticas internas de gestão de risco</li>
+      <li>Preparação para regulamentações futuras</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">09</div>
+      <h2>Integrações e APIs</h2>
+    </div>
+    
+    <p>O ecossistema ZETTA oferece APIs robustas para integração com sistemas externos e desenvolvimento de aplicações terceiras.</p>
+    
+    <h3>APIs Disponíveis</h3>
+    <ul>
+      <li><strong>ZETTA Core API:</strong> Operações básicas de token e blockchain</li>
+      <li><strong>Wallet API:</strong> Integração com Obelisk-Z Wallet</li>
+      <li><strong>Pay API:</strong> Processamento de pagamentos</li>
+      <li><strong>Swap API:</strong> Operações de exchange</li>
+      <li><strong>Analytics API:</strong> Dados e métricas do ecossistema</li>
+      <li><strong>KYC API:</strong> Verificação de identidade</li>
+    </ul>
+    
+    <h3>SDKs</h3>
+    <ul>
+      <li>JavaScript/TypeScript SDK</li>
+      <li>Python SDK</li>
+      <li>Go SDK</li>
+      <li>Mobile SDKs (iOS/Android)</li>
+    </ul>
+    
+    <div class="code-block">
+// Exemplo de integração com ZETTA API
+const zetta = new ZettaSDK({
+  apiKey: 'YOUR_API_KEY',
+  network: 'mainnet'
+});
+
+const balance = await zetta.getBalance(address);
+const swap = await zetta.swap({
+  from: 'Z',
+  to: 'USDT',
+  amount: '1000'
+});
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">10</div>
+      <h2>Roadmap Técnico</h2>
+    </div>
+    
+    <p>O desenvolvimento do ecossistema ZETTA segue um roadmap progressivo, priorizando execução real sobre promessas vazias.</p>
+    
+    <div class="roadmap-container">
+      <div class="roadmap-phase">
+        <div class="phase-header">
+          <span class="phase-badge">FASE 1</span>
+          <span class="phase-title">Fundação</span>
+        </div>
+        <ul class="phase-items">
+          <li>Estrutura regulatória (Panamá / Dubai)</li>
+          <li>Configuração Gnosis Safe multisig</li>
+          <li>Auditoria de contrato Cyberscope</li>
+          <li>Verificação KYC da equipe</li>
+          <li>Site institucional e documentação</li>
+        </ul>
+      </div>
+      
+      <div class="roadmap-phase">
+        <div class="phase-header">
+          <span class="phase-badge">FASE 2</span>
+          <span class="phase-title">Lançamento</span>
+        </div>
+        <ul class="phase-items">
+          <li>Publicação do Proof-of-Burn (500M tokens)</li>
+          <li>Fairlaunch via Pinksale</li>
+          <li>Listagens iniciais em DEXs</li>
+          <li>Ativação de LP locks</li>
+          <li>Início do programa de staking</li>
+        </ul>
+      </div>
+      
+      <div class="roadmap-phase">
+        <div class="phase-header">
+          <span class="phase-badge">FASE 3</span>
+          <span class="phase-title">Produtos Core</span>
+        </div>
+        <ul class="phase-items">
+          <li>MVP Obelisk-Z Wallet</li>
+          <li>ZETTA Swap beta</li>
+          <li>ZETTA Earn (staking platform)</li>
+          <li>Z-PAD Launchpad</li>
+          <li>Integrações cross-chain iniciais</li>
+        </ul>
+      </div>
+      
+      <div class="roadmap-phase">
+        <div class="phase-header">
+          <span class="phase-badge">FASE 4</span>
+          <span class="phase-title">Infraestrutura Bancária</span>
+        </div>
+        <ul class="phase-items">
+          <li>MVP Z-BANCK (acesso privado)</li>
+          <li>Parcerias com emissores de cartão</li>
+          <li>Integração IBAN/SWIFT</li>
+          <li>ZETTA Pay para merchants</li>
+          <li>On/off ramp fiat</li>
+        </ul>
+      </div>
+      
+      <div class="roadmap-phase">
+        <div class="phase-header">
+          <span class="phase-badge">FASE 5</span>
+          <span class="phase-title">Expansão</span>
+        </div>
+        <ul class="phase-items">
+          <li>Blockchain ZETTA testnet</li>
+          <li>ZION IA v1.0</li>
+          <li>Listagens em CEXs tier-2/tier-1</li>
+          <li>Expansão global de serviços</li>
+          <li>Parcerias institucionais</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">11</div>
+      <h2>Estrutura Regulatória</h2>
+    </div>
+    
+    <p>A ZETTA opera com foco em compliance e preparação regulatória para operar em múltiplas jurisdições.</p>
+    
+    <h3>Jurisdições Alvo</h3>
+    <ul>
+      <li><strong>Panamá:</strong> Estrutura corporativa e operações Americas</li>
+      <li><strong>Dubai (VARA):</strong> Licenciamento para operações cripto</li>
+      <li><strong>União Europeia:</strong> Preparação para MiCA compliance</li>
+      <li><strong>Suíça:</strong> Potencial para banking license</li>
+    </ul>
+    
+    <h3>Licenças em Processo</h3>
+    <ul>
+      <li>Virtual Asset Service Provider (VASP) — Dubai</li>
+      <li>Money Services Business (MSB) — em avaliação</li>
+      <li>Electronic Money Institution (EMI) — planejado</li>
+    </ul>
+    
+    <div class="highlight">
+      <p><strong>Nota:</strong> Detalhes específicos sobre licenças e estrutura regulatória são fornecidos mediante solicitação institucional e NDA.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">12</div>
+      <h2>Parcerias Estratégicas</h2>
+    </div>
+    
+    <p>A ZETTA busca parcerias estratégicas com players estabelecidos do mercado financeiro e tecnológico para acelerar a adoção e garantir robustez operacional.</p>
+    
+    <h3>Parcerias Confirmadas</h3>
+    <div class="partner-grid">
+      <div class="partner-card">
+        <div class="partner-name">Cyberscope</div>
+        <div class="partner-type">Auditoria de Segurança</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">BSCScan</div>
+        <div class="partner-type">Verificação de Contrato</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Pinksale</div>
+        <div class="partner-type">Plataforma de Fairlaunch</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Gnosis Safe</div>
+        <div class="partner-type">Multisig Security</div>
+      </div>
+    </div>
+    
+    <h3>Parcerias em Negociação</h3>
+    <ul>
+      <li>Emissores de cartão (program managers)</li>
+      <li>Bancos emissores para IBAN</li>
+      <li>Provedores de pagamento (PSPs)</li>
+      <li>Exchanges centralizadas (CEXs)</li>
+      <li>Provedores de liquidez institucionais</li>
+    </ul>
+    
+    <div class="highlight-gold">
+      <p>Para propostas de parceria institucional, solicite reunião através de contact@zettaword.global ou via formulário no site oficial.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">ZETTA</div>
+    <p class="footer-disclaimer">Este documento técnico é informativo e destinado a desenvolvedores, parceiros e investidores institucionais. Especificações técnicas podem mudar durante o desenvolvimento. Para informações atualizadas, consulte a documentação oficial.</p>
+    <p class="footer-copyright">&copy; 2025 ZETTA WORD. Todos os direitos reservados.<br>www.zettaword.global</p>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1402 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Tokenomics — ZETTA | Economia do Token Z</title>
+  <meta name="description" content="Tokenomics completo do Token ZETTA (Z). Supply, distribuição, taxas, vesting, calculadora de investimento e projeções.">
+  <meta name="keywords" content="ZETTA tokenomics, token Z, distribuição, supply, fairlaunch, Pinksale, crypto">
+  <link rel="canonical" href="https://zettaword.global/tokenomics.html">
+
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ZETTA WORD">
+  <meta property="og:title" content="Tokenomics — ZETTA | Economia do Token Z">
+  <meta property="og:description" content="Tokenomics detalhado do ecossistema ZETTA. Supply, distribuição, taxas e calculadora.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zettaword.global/tokenomics.html">
+  <meta property="og:image" content="https://zettaword.global/assets/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tokenomics — ZETTA">
+  <meta name="twitter:description" content="Economia do Token ZETTA (Z).">
+  <meta name="twitter:site" content="@ZettaWord">
+
+  <meta name="theme-color" content="#000000">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="/assets/logo-z.svg" type="image/svg+xml" />
+
+  <style>
+    :root {
+      --tk-primary: #00d4ff;
+      --tk-secondary: #0066ff;
+      --tk-accent: #00ff88;
+      --tk-gold: #c9a955;
+      --tk-purple: #9f7aea;
+      --tk-dark: #0a0a12;
+      --tk-glass: rgba(255,255,255,0.03);
+      --tk-glass-border: rgba(255,255,255,0.08);
+    }
+
+    .tk-page {
+      background: linear-gradient(180deg, #000 0%, #0a0a15 50%, #000 100%);
+      min-height: 100vh;
+    }
+
+    .tk-hero {
+      padding: 10rem 0 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .tk-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,212,255,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 30% 20%, rgba(0,102,255,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 30% at 70% 30%, rgba(0,255,136,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .tk-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,255,136,0.1));
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: 50px;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--tk-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+    .tk-hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--tk-accent);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .tk-hero-title {
+      font-size: clamp(3rem, 10vw, 5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #00d4ff 50%, #00ff88 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+    .tk-hero-subtitle {
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .tk-hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .tk-hero-stat {
+      text-align: center;
+    }
+    .tk-hero-stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--tk-primary);
+      text-shadow: 0 0 30px rgba(0,212,255,0.5);
+    }
+    .tk-hero-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.25rem;
+    }
+
+    .tk-hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .tk-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .tk-btn-primary {
+      background: linear-gradient(135deg, var(--tk-primary), var(--tk-secondary));
+      color: #000;
+      box-shadow: 0 0 30px rgba(0,212,255,0.3);
+    }
+    .tk-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(0,212,255,0.5);
+    }
+    .tk-btn-secondary {
+      background: var(--tk-glass);
+      border: 1px solid var(--tk-glass-border);
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+    .tk-btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(0,212,255,0.3);
+    }
+
+    .tk-network-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .tk-network-badge svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .tk-dashboard {
+      padding: 4rem 0;
+    }
+
+    .tk-grid-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    @media (max-width: 900px) {
+      .tk-grid-metrics { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .tk-grid-metrics { grid-template-columns: 1fr; }
+    }
+
+    .tk-metric-card {
+      background: linear-gradient(135deg, var(--tk-glass) 0%, rgba(0,0,0,0.2) 100%);
+      border: 1px solid var(--tk-glass-border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .tk-metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--tk-primary), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .tk-metric-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,212,255,0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(0,212,255,0.1);
+    }
+    .tk-metric-card:hover::before {
+      opacity: 1;
+    }
+    .tk-metric-card.highlight {
+      background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(0,0,0,0.2) 100%);
+      border-color: rgba(0,212,255,0.3);
+    }
+    .tk-metric-card.highlight::before {
+      opacity: 1;
+      background: linear-gradient(90deg, transparent, var(--tk-accent), transparent);
+    }
+
+    .tk-metric-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(0,102,255,0.1));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--tk-primary);
+    }
+    .tk-metric-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+    .tk-metric-value .prefix {
+      font-size: 1.25rem;
+      color: var(--tk-primary);
+    }
+    .tk-metric-value .suffix {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .tk-metric-label {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .tk-metric-change {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 1rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(0,255,136,0.1);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--tk-accent);
+    }
+    .tk-metric-change.negative {
+      background: rgba(255,100,100,0.1);
+      color: #ff6464;
+    }
+
+    .tk-section {
+      padding: 4rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .tk-section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .tk-section-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #000;
+      background: linear-gradient(135deg, var(--tk-primary), var(--tk-accent));
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+    .tk-section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .tk-distribution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .tk-distribution-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    .tk-chart-wrapper {
+      position: relative;
+      padding: 2rem;
+    }
+    .tk-chart-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(0,212,255,0.2) 0%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    .tk-donut-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    .tk-donut-chart {
+      width: 100%;
+      height: auto;
+      transform: rotate(-90deg);
+      filter: drop-shadow(0 0 20px rgba(0,212,255,0.3));
+    }
+    .tk-donut-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: radial-gradient(circle, rgba(0,0,0,0.8) 0%, transparent 100%);
+      padding: 2rem;
+      border-radius: 50%;
+    }
+    .tk-donut-center-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(0,212,255,0.5);
+    }
+    .tk-donut-center-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .donut-segment {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .donut-segment:hover,
+    .donut-segment.active {
+      filter: brightness(1.3) drop-shadow(0 0 10px currentColor);
+    }
+
+    .tk-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .tk-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--tk-glass);
+      border: 1px solid transparent;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .tk-legend-item:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(0,212,255,0.2);
+      transform: translateX(8px);
+    }
+    .tk-legend-item.active {
+      background: rgba(0,212,255,0.1);
+      border-color: rgba(0,212,255,0.3);
+    }
+    .tk-legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px currentColor;
+    }
+    .tk-legend-info {
+      flex: 1;
+    }
+    .tk-legend-text {
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .tk-legend-tokens {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.25rem;
+    }
+    .tk-legend-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--tk-primary);
+    }
+
+    .tk-bars-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: var(--tk-glass);
+      border: 1px solid var(--tk-glass-border);
+      border-radius: 20px;
+    }
+    .tk-bar-item {
+      margin-bottom: 1.5rem;
+    }
+    .tk-bar-item:last-child { margin-bottom: 0; }
+    .tk-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .tk-bar-label {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+    .tk-bar-value {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--tk-primary);
+      font-weight: 600;
+    }
+    .tk-bar-track {
+      height: 8px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .tk-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--tk-primary), var(--tk-accent));
+      box-shadow: 0 0 20px rgba(0,212,255,0.5);
+      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0;
+    }
+    .tk-bar-fill.animated {
+      width: var(--target-width);
+    }
+
+    .tk-vesting-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .tk-vesting-card {
+      background: var(--tk-glass);
+      border: 1px solid var(--tk-glass-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .tk-vesting-card:hover {
+      border-color: rgba(0,212,255,0.2);
+      transform: translateY(-2px);
+    }
+    .tk-vesting-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .tk-vesting-category {
+      font-weight: 600;
+      color: #fff;
+    }
+    .tk-vesting-percent {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--tk-primary);
+      font-weight: 700;
+    }
+    .tk-vesting-details {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    .tk-vesting-bar {
+      margin-top: 1rem;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .tk-vesting-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--tk-primary), var(--tk-accent));
+      border-radius: 2px;
+    }
+
+    .tk-fees-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .tk-fee-card {
+      background: var(--tk-glass);
+      border: 1px solid var(--tk-glass-border);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .tk-fee-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .tk-fee-card:hover {
+      border-color: rgba(0,212,255,0.3);
+      transform: translateY(-4px);
+    }
+    .tk-fee-card:hover::before {
+      opacity: 1;
+    }
+    .tk-fee-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .tk-fee-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .tk-fee-type {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--tk-primary);
+      margin-bottom: 0.5rem;
+    }
+    .tk-fee-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .tk-calculator {
+      background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(0,255,136,0.05) 100%);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 24px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .tk-calculator::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0,255,136,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .tk-calc-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .tk-calc-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .tk-calc-subtitle {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .tk-calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .tk-calc-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .tk-calc-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+    .tk-calc-input {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .tk-calc-input:focus {
+      outline: none;
+      border-color: var(--tk-primary);
+      box-shadow: 0 0 30px rgba(0,212,255,0.2);
+    }
+    .tk-calc-input::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .tk-calc-result {
+      background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,212,255,0.1) 100%);
+      border: 1px solid rgba(0,255,136,0.3);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .tk-calc-result-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.5rem;
+    }
+    .tk-calc-result-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--tk-accent);
+      text-shadow: 0 0 30px rgba(0,255,136,0.5);
+    }
+    .tk-calc-result-tokens {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--tk-primary);
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .tk-contract-section {
+      background: linear-gradient(135deg, var(--tk-glass) 0%, rgba(0,0,0,0.3) 100%);
+      border: 1px solid var(--tk-glass-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-top: 3rem;
+    }
+    .tk-contract-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .tk-contract-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--tk-primary), var(--tk-secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+    }
+    .tk-contract-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .tk-contract-subtitle {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .tk-contract-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      flex-wrap: wrap;
+    }
+    .tk-contract-address {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--tk-primary);
+      font-size: 0.9rem;
+      word-break: break-all;
+      flex: 1;
+    }
+    .tk-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--tk-primary), var(--tk-secondary));
+      border: none;
+      color: #000;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .tk-copy-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0,212,255,0.4);
+    }
+    .tk-contract-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .tk-contract-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      background: var(--tk-glass);
+      border: 1px solid var(--tk-glass-border);
+      border-radius: 8px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+    .tk-contract-link:hover {
+      border-color: rgba(0,212,255,0.3);
+      color: var(--tk-primary);
+    }
+
+    .tk-cta {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(0,255,136,0.05) 100%);
+      border-radius: 30px;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .tk-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(0,212,255,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(0,255,136,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .tk-cta-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .tk-cta-text {
+      color: rgba(255,255,255,0.6);
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tk-grid-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+
+  <canvas id="particleCanvas" class="particle-canvas" aria-hidden="true"></canvas>
+  <div class="tk-grid-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img class="logo-img" src="/assets/logo-z.svg" alt="ZETTA" width="36" height="36">
+        <span class="brand-text">ZETTA</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="main-nav" class="nav">
+        <a class="nav-link" href="/#about">Sobre</a>
+        <a class="nav-link" href="/#ecosystem">Ecossistema</a>
+        <a class="nav-link" href="/#token">Token</a>
+        <a class="nav-link" href="/#roadmap">Roadmap</a>
+        <a class="nav-link" href="/zetta.html">One-Page</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="tk-page">
+    <section class="tk-hero">
+      <div class="container">
+        <span class="tk-hero-badge">Live on BSC Mainnet</span>
+        <h1 class="tk-hero-title">Tokenomics</h1>
+        <p class="tk-hero-subtitle">Economia deflacionária, transparente e auditada. Projetada para valor sustentável de longo prazo.</p>
+        
+        <div class="tk-hero-stats">
+          <div class="tk-hero-stat">
+            <div class="tk-hero-stat-value">500M</div>
+            <div class="tk-hero-stat-label">Supply Final</div>
+          </div>
+          <div class="tk-hero-stat">
+            <div class="tk-hero-stat-value">$0.10</div>
+            <div class="tk-hero-stat-label">Preço Launch</div>
+          </div>
+          <div class="tk-hero-stat">
+            <div class="tk-hero-stat-value">50%</div>
+            <div class="tk-hero-stat-label">Queima Realizada</div>
+          </div>
+        </div>
+
+        <div class="tk-hero-actions">
+          <a href="/tokenomics-print.html" target="_blank" class="tk-btn tk-btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download PDF
+          </a>
+          <a href="#distribution" class="tk-btn tk-btn-secondary">Explorar Distribuição</a>
+        </div>
+
+        <div class="tk-network-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>BSC BEP-20 • Auditado por Cyberscope</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tk-dashboard">
+      <div class="container">
+        <div class="tk-grid-metrics animate-on-scroll">
+          <div class="tk-metric-card highlight">
+            <div class="tk-metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="tk-metric-value">500<span class="suffix">M</span></div>
+            <div class="tk-metric-label">Supply Circulante</div>
+            <div class="tk-metric-change">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              -50% após queima
+            </div>
+          </div>
+          <div class="tk-metric-card">
+            <div class="tk-metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="tk-metric-value"><span class="prefix">$</span>0.10</div>
+            <div class="tk-metric-label">Preço Fairlaunch</div>
+          </div>
+          <div class="tk-metric-card">
+            <div class="tk-metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3v18h18"/>
+                <path d="m19 9-5 5-4-4-3 3"/>
+              </svg>
+            </div>
+            <div class="tk-metric-value"><span class="prefix">$</span>50<span class="suffix">M</span></div>
+            <div class="tk-metric-label">Market Cap Inicial</div>
+          </div>
+          <div class="tk-metric-card">
+            <div class="tk-metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4"/>
+                <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+              </svg>
+            </div>
+            <div class="tk-metric-value">Pinksale</div>
+            <div class="tk-metric-label">Plataforma de Launch</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <article class="tk-content">
+      <div class="container">
+
+        <section id="distribution" class="tk-section animate-on-scroll">
+          <div class="tk-section-header">
+            <span class="tk-section-number">01</span>
+            <h2 class="tk-section-title">Distribuição de Tokens</h2>
+          </div>
+          
+          <div class="tk-distribution-grid">
+            <div class="tk-chart-wrapper">
+              <div class="tk-chart-glow"></div>
+              <div class="tk-donut-wrapper">
+                <svg class="tk-donut-chart" viewBox="0 0 200 200">
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="25"/>
+                  <circle class="donut-segment" cx="100" cy="100" r="80" fill="none" stroke="#00d4ff" stroke-width="25" stroke-dasharray="201 302" stroke-dashoffset="0" data-segment="fairlaunch"/>
+                  <circle class="donut-segment" cx="100" cy="100" r="80" fill="none" stroke="#0066ff" stroke-width="25" stroke-dasharray="100.5 402.5" stroke-dashoffset="-201" data-segment="staking"/>
+                  <circle class="donut-segment" cx="100" cy="100" r="80" fill="none" stroke="#c9a955" stroke-width="25" stroke-dasharray="65.3 437.7" stroke-dashoffset="-301.5" data-segment="treasury"/>
+                  <circle class="donut-segment" cx="100" cy="100" r="80" fill="none" stroke="#8892a0" stroke-width="25" stroke-dasharray="50.3 452.7" stroke-dashoffset="-366.8" data-segment="marketing"/>
+                  <circle class="donut-segment" cx="100" cy="100" r="80" fill="none" stroke="#4a5568" stroke-width="25" stroke-dasharray="50.3 452.7" stroke-dashoffset="-417.1" data-segment="dev"/>
+                  <circle class="donut-segment" cx="100" cy="100" r="80" fill="none" stroke="#00ff88" stroke-width="25" stroke-dasharray="20.1 482.9" stroke-dashoffset="-467.4" data-segment="founders"/>
+                  <circle class="donut-segment" cx="100" cy="100" r="80" fill="none" stroke="#9f7aea" stroke-width="25" stroke-dasharray="15.1 487.9" stroke-dashoffset="-487.5" data-segment="advisors"/>
+                </svg>
+                <div class="tk-donut-center">
+                  <div class="tk-donut-center-value" id="donutCenterValue">500M</div>
+                  <div class="tk-donut-center-label">Total Supply</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tk-legend">
+              <div class="tk-legend-item" data-segment="fairlaunch" onmouseenter="highlightSegment('fairlaunch')" onmouseleave="resetSegments()">
+                <div class="tk-legend-color" style="background: #00d4ff; color: #00d4ff;"></div>
+                <div class="tk-legend-info">
+                  <div class="tk-legend-text">Fairlaunch Público</div>
+                  <div class="tk-legend-tokens">200,000,000 Z</div>
+                </div>
+                <span class="tk-legend-value">40%</span>
+              </div>
+              <div class="tk-legend-item" data-segment="staking" onmouseenter="highlightSegment('staking')" onmouseleave="resetSegments()">
+                <div class="tk-legend-color" style="background: #0066ff; color: #0066ff;"></div>
+                <div class="tk-legend-info">
+                  <div class="tk-legend-text">Staking & Rewards</div>
+                  <div class="tk-legend-tokens">100,000,000 Z</div>
+                </div>
+                <span class="tk-legend-value">20%</span>
+              </div>
+              <div class="tk-legend-item" data-segment="treasury" onmouseenter="highlightSegment('treasury')" onmouseleave="resetSegments()">
+                <div class="tk-legend-color" style="background: #c9a955; color: #c9a955;"></div>
+                <div class="tk-legend-info">
+                  <div class="tk-legend-text">Tesouraria</div>
+                  <div class="tk-legend-tokens">65,000,000 Z</div>
+                </div>
+                <span class="tk-legend-value">13%</span>
+              </div>
+              <div class="tk-legend-item" data-segment="marketing" onmouseenter="highlightSegment('marketing')" onmouseleave="resetSegments()">
+                <div class="tk-legend-color" style="background: #8892a0; color: #8892a0;"></div>
+                <div class="tk-legend-info">
+                  <div class="tk-legend-text">Marketing</div>
+                  <div class="tk-legend-tokens">50,000,000 Z</div>
+                </div>
+                <span class="tk-legend-value">10%</span>
+              </div>
+              <div class="tk-legend-item" data-segment="dev" onmouseenter="highlightSegment('dev')" onmouseleave="resetSegments()">
+                <div class="tk-legend-color" style="background: #4a5568; color: #4a5568;"></div>
+                <div class="tk-legend-info">
+                  <div class="tk-legend-text">Desenvolvimento</div>
+                  <div class="tk-legend-tokens">50,000,000 Z</div>
+                </div>
+                <span class="tk-legend-value">10%</span>
+              </div>
+              <div class="tk-legend-item" data-segment="founders" onmouseenter="highlightSegment('founders')" onmouseleave="resetSegments()">
+                <div class="tk-legend-color" style="background: #00ff88; color: #00ff88;"></div>
+                <div class="tk-legend-info">
+                  <div class="tk-legend-text">Fundadores</div>
+                  <div class="tk-legend-tokens">20,000,000 Z</div>
+                </div>
+                <span class="tk-legend-value">4%</span>
+              </div>
+              <div class="tk-legend-item" data-segment="advisors" onmouseenter="highlightSegment('advisors')" onmouseleave="resetSegments()">
+                <div class="tk-legend-color" style="background: #9f7aea; color: #9f7aea;"></div>
+                <div class="tk-legend-info">
+                  <div class="tk-legend-text">Advisors</div>
+                  <div class="tk-legend-tokens">15,000,000 Z</div>
+                </div>
+                <span class="tk-legend-value">3%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tk-bars-section animate-on-scroll">
+            <div class="tk-bar-item">
+              <div class="tk-bar-header">
+                <span class="tk-bar-label">Fairlaunch Público</span>
+                <span class="tk-bar-value">40%</span>
+              </div>
+              <div class="tk-bar-track">
+                <div class="tk-bar-fill" style="--target-width: 40%; background: linear-gradient(90deg, #00d4ff, #00b8d4);"></div>
+              </div>
+            </div>
+            <div class="tk-bar-item">
+              <div class="tk-bar-header">
+                <span class="tk-bar-label">Staking & Rewards</span>
+                <span class="tk-bar-value">20%</span>
+              </div>
+              <div class="tk-bar-track">
+                <div class="tk-bar-fill" style="--target-width: 20%; background: linear-gradient(90deg, #0066ff, #0044cc);"></div>
+              </div>
+            </div>
+            <div class="tk-bar-item">
+              <div class="tk-bar-header">
+                <span class="tk-bar-label">Tesouraria</span>
+                <span class="tk-bar-value">13%</span>
+              </div>
+              <div class="tk-bar-track">
+                <div class="tk-bar-fill" style="--target-width: 13%; background: linear-gradient(90deg, #c9a955, #d4b96a);"></div>
+              </div>
+            </div>
+            <div class="tk-bar-item">
+              <div class="tk-bar-header">
+                <span class="tk-bar-label">Marketing + Dev</span>
+                <span class="tk-bar-value">20%</span>
+              </div>
+              <div class="tk-bar-track">
+                <div class="tk-bar-fill" style="--target-width: 20%; background: linear-gradient(90deg, #8892a0, #4a5568);"></div>
+              </div>
+            </div>
+            <div class="tk-bar-item">
+              <div class="tk-bar-header">
+                <span class="tk-bar-label">Fundadores + Advisors</span>
+                <span class="tk-bar-value">7%</span>
+              </div>
+              <div class="tk-bar-track">
+                <div class="tk-bar-fill" style="--target-width: 7%; background: linear-gradient(90deg, #00ff88, #9f7aea);"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="vesting" class="tk-section animate-on-scroll">
+          <div class="tk-section-header">
+            <span class="tk-section-number">02</span>
+            <h2 class="tk-section-title">Cronograma de Vesting</h2>
+          </div>
+          
+          <div class="tk-vesting-grid">
+            <div class="tk-vesting-card">
+              <div class="tk-vesting-header">
+                <span class="tk-vesting-category">Fairlaunch</span>
+                <span class="tk-vesting-percent">40%</span>
+              </div>
+              <div class="tk-vesting-details">100% liberado no TGE (Token Generation Event). Sem bloqueio.</div>
+              <div class="tk-vesting-bar">
+                <div class="tk-vesting-progress" style="width: 100%;"></div>
+              </div>
+            </div>
+            <div class="tk-vesting-card">
+              <div class="tk-vesting-header">
+                <span class="tk-vesting-category">Staking Rewards</span>
+                <span class="tk-vesting-percent">20%</span>
+              </div>
+              <div class="tk-vesting-details">Liberação linear ao longo de 36 meses. Distribuído como recompensas de staking.</div>
+              <div class="tk-vesting-bar">
+                <div class="tk-vesting-progress" style="width: 8%;"></div>
+              </div>
+            </div>
+            <div class="tk-vesting-card">
+              <div class="tk-vesting-header">
+                <span class="tk-vesting-category">Tesouraria</span>
+                <span class="tk-vesting-percent">13%</span>
+              </div>
+              <div class="tk-vesting-details">Cliff de 6 meses, depois liberação linear em 24 meses.</div>
+              <div class="tk-vesting-bar">
+                <div class="tk-vesting-progress" style="width: 0%;"></div>
+              </div>
+            </div>
+            <div class="tk-vesting-card">
+              <div class="tk-vesting-header">
+                <span class="tk-vesting-category">Marketing</span>
+                <span class="tk-vesting-percent">10%</span>
+              </div>
+              <div class="tk-vesting-details">20% no TGE, restante liberado em 18 meses.</div>
+              <div class="tk-vesting-bar">
+                <div class="tk-vesting-progress" style="width: 20%;"></div>
+              </div>
+            </div>
+            <div class="tk-vesting-card">
+              <div class="tk-vesting-header">
+                <span class="tk-vesting-category">Desenvolvimento</span>
+                <span class="tk-vesting-percent">10%</span>
+              </div>
+              <div class="tk-vesting-details">Cliff de 3 meses, liberação linear em 24 meses.</div>
+              <div class="tk-vesting-bar">
+                <div class="tk-vesting-progress" style="width: 0%;"></div>
+              </div>
+            </div>
+            <div class="tk-vesting-card">
+              <div class="tk-vesting-header">
+                <span class="tk-vesting-category">Fundadores</span>
+                <span class="tk-vesting-percent">4%</span>
+              </div>
+              <div class="tk-vesting-details">Cliff de 12 meses, liberação linear em 36 meses.</div>
+              <div class="tk-vesting-bar">
+                <div class="tk-vesting-progress" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="fees" class="tk-section animate-on-scroll">
+          <div class="tk-section-header">
+            <span class="tk-section-number">03</span>
+            <h2 class="tk-section-title">Estrutura de Taxas</h2>
+          </div>
+          
+          <div class="tk-fees-grid">
+            <div class="tk-fee-card">
+              <div class="tk-fee-icon">💸</div>
+              <div class="tk-fee-value">0%</div>
+              <div class="tk-fee-type">Taxa de Compra</div>
+              <div class="tk-fee-desc">Sem taxas para adquirir tokens</div>
+            </div>
+            <div class="tk-fee-card">
+              <div class="tk-fee-icon">📤</div>
+              <div class="tk-fee-value">0%</div>
+              <div class="tk-fee-type">Taxa de Venda</div>
+              <div class="tk-fee-desc">Sem taxas para vender tokens</div>
+            </div>
+            <div class="tk-fee-card">
+              <div class="tk-fee-icon">🔄</div>
+              <div class="tk-fee-value">0%</div>
+              <div class="tk-fee-type">Taxa de Transfer</div>
+              <div class="tk-fee-desc">Transferências sem custo</div>
+            </div>
+            <div class="tk-fee-card">
+              <div class="tk-fee-icon">🔥</div>
+              <div class="tk-fee-value">50%</div>
+              <div class="tk-fee-type">Queima Realizada</div>
+              <div class="tk-fee-desc">500M tokens queimados</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="calculator" class="tk-section animate-on-scroll">
+          <div class="tk-section-header">
+            <span class="tk-section-number">04</span>
+            <h2 class="tk-section-title">Calculadora de Investimento</h2>
+          </div>
+          
+          <div class="tk-calculator">
+            <div class="tk-calc-header">
+              <h3 class="tk-calc-title">Simule seu Investimento</h3>
+              <p class="tk-calc-subtitle">Calcule quantos tokens você pode adquirir e projeções de retorno</p>
+            </div>
+            
+            <div class="tk-calc-grid">
+              <div class="tk-calc-input-group">
+                <label class="tk-calc-label">Valor do Investimento (USD)</label>
+                <input type="number" class="tk-calc-input" id="investmentAmount" placeholder="1000" oninput="calculateInvestment()">
+              </div>
+              <div class="tk-calc-input-group">
+                <label class="tk-calc-label">Preço Alvo (USD)</label>
+                <input type="number" class="tk-calc-input" id="targetPrice" placeholder="0.50" step="0.01" oninput="calculateInvestment()">
+              </div>
+            </div>
+            
+            <div class="tk-calc-result">
+              <div class="tk-calc-result-label">Valor Projetado</div>
+              <div class="tk-calc-result-value" id="projectedValue">$0.00</div>
+              <div class="tk-calc-result-tokens" id="tokenAmount">0 Z tokens</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contract" class="tk-section animate-on-scroll">
+          <div class="tk-section-header">
+            <span class="tk-section-number">05</span>
+            <h2 class="tk-section-title">Contrato Inteligente</h2>
+          </div>
+          
+          <div class="tk-contract-section">
+            <div class="tk-contract-header">
+              <div class="tk-contract-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <div>
+                <div class="tk-contract-title">Token ZETTA (Z)</div>
+                <div class="tk-contract-subtitle">BSC BEP-20 • Verificado no BscScan</div>
+              </div>
+            </div>
+            
+            <div class="tk-contract-box">
+              <code class="tk-contract-address" id="contractAddress">0x8aacc38933007ec530c552007e210b4667749df1</code>
+              <button class="tk-copy-btn" onclick="copyContract()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                Copiar
+              </button>
+            </div>
+            
+            <div class="tk-contract-links">
+              <a href="https://bscscan.com/token/0x8aacc38933007ec530c552007e210b4667749df1" target="_blank" rel="noopener" class="tk-contract-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                Ver no BscScan
+              </a>
+              <a href="https://pancakeswap.finance/swap?outputCurrency=0x8aacc38933007ec530c552007e210b4667749df1" target="_blank" rel="noopener" class="tk-contract-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+                </svg>
+                Comprar no PancakeSwap
+              </a>
+              <a href="https://www.cyberscope.io/audits/zetta" target="_blank" rel="noopener" class="tk-contract-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Auditoria Cyberscope
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <div class="tk-cta animate-on-scroll">
+          <h2 class="tk-cta-title">Pronto para Investir?</h2>
+          <p class="tk-cta-text">Junte-se ao ecossistema ZETTA e faça parte da revolução financeira híbrida Web3 + Fiat.</p>
+          <div class="tk-hero-actions">
+            <a href="https://pancakeswap.finance/swap?outputCurrency=0x8aacc38933007ec530c552007e210b4667749df1" target="_blank" class="tk-btn tk-btn-primary">Comprar ZETTA</a>
+            <a href="/whitepaper.html" class="tk-btn tk-btn-secondary">Ler Whitepaper</a>
+          </div>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand">
+            <img class="logo-img" src="/assets/logo-z.svg" alt="ZETTA" width="36" height="36">
+            <span class="brand-text">ZETTA</span>
+          </a>
+          <p class="footer-desc">Revolucionando o futuro financeiro através da convergência entre tecnologia blockchain e sistemas tradicionais.</p>
+        </div>
+        <nav class="footer-nav">
+          <h4>Links</h4>
+          <a href="/#about">Sobre</a>
+          <a href="/#ecosystem">Ecossistema</a>
+          <a href="/whitepaper.html">Whitepaper</a>
+          <a href="/tokenomics.html">Tokenomics</a>
+        </nav>
+        <nav class="footer-nav">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacidade</a>
+          <a href="/terms.html">Termos</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ZETTA WORD. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/app.js"></script>
+  <script>
+    function copyContract() {
+      const address = document.getElementById('contractAddress').textContent;
+      navigator.clipboard.writeText(address).then(() => {
+        const btn = document.querySelector('.tk-copy-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copiado!';
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+      });
+    }
+
+    function highlightSegment(segment) {
+      document.querySelectorAll('.donut-segment').forEach(s => {
+        s.classList.toggle('active', s.dataset.segment === segment);
+      });
+      document.querySelectorAll('.tk-legend-item').forEach(item => {
+        item.classList.toggle('active', item.dataset.segment === segment);
+      });
+    }
+
+    function resetSegments() {
+      document.querySelectorAll('.donut-segment').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tk-legend-item').forEach(item => item.classList.remove('active'));
+    }
+
+    function calculateInvestment() {
+      const investment = parseFloat(document.getElementById('investmentAmount').value) || 0;
+      const targetPrice = parseFloat(document.getElementById('targetPrice').value) || 0;
+      const currentPrice = 0.10;
+      
+      const tokens = investment / currentPrice;
+      const projectedValue = tokens * targetPrice;
+      
+      document.getElementById('tokenAmount').textContent = tokens.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' Z tokens';
+      document.getElementById('projectedValue').textContent = '$' + projectedValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            
+            if (entry.target.querySelectorAll('.tk-bar-fill').length > 0) {
+              setTimeout(() => {
+                entry.target.querySelectorAll('.tk-bar-fill').forEach(bar => {
+                  bar.classList.add('animated');
+                });
+              }, 300);
+            }
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    });
+  </script>
+  <script src="/scripts/chat-widget.js"></script>
+</body>
+</html>
